@@ -25,6 +25,19 @@ links.forEach(link => {
   })
 })
 
+// check if touch screen
+isTouchDevice = () => {
+  return ( 'ontouchstart' in window ) ||
+    ( navigator.maxTouchPoints > 0 ) ||
+    ( navigator.msMaxTouchPoints > 0 );
+};
+
+// hide cursor if touch screen
+if(isTouchDevice) {
+  cursor.style.pointerEvents = "none";
+  cursor.style.display = "none";
+}
+
 // animate h1
 gsap.from(".h1-animated", {
   duration: 0.8,
@@ -35,7 +48,6 @@ gsap.from(".h1-animated", {
 
 // show image on hover
 let attached = false;
-
 let imageContainer = document.querySelector(".image-container");
 
 const mouseMove = (event) => {
@@ -50,6 +62,9 @@ function showImage(src) {
     imageContainer.src = src;
     imageContainer.style.display = "block";
     document.addEventListener("pointermove", mouseMove);
+  }
+  if (isTouchDevice) {
+    imageContainer.style.display = "none";
   }
 }
 
