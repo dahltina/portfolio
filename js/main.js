@@ -1,3 +1,10 @@
+// check if touch screen
+isTouchDevice = () => {
+  return ( 'ontouchstart' in window ) ||
+    ( navigator.maxTouchPoints > 0 ) ||
+    ( navigator.msMaxTouchPoints > 0 );
+};
+
 // cursor
 document.body.addEventListener("mousemove", event => {
   const x = event.clientX;
@@ -24,13 +31,6 @@ links.forEach(link => {
     cursor.classList.remove("grow");
   })
 })
-
-// check if touch screen
-isTouchDevice = () => {
-  return ( 'ontouchstart' in window ) ||
-    ( navigator.maxTouchPoints > 0 ) ||
-    ( navigator.msMaxTouchPoints > 0 );
-};
 
 // hide cursor if touch screen
 if(isTouchDevice) {
