@@ -1,11 +1,12 @@
-// check if touch screen
-isTouchDevice = () => {
-  return ( 'ontouchstart' in window ) ||
-    ( navigator.maxTouchPoints > 0 ) ||
-    ( navigator.msMaxTouchPoints > 0 );
-};
-
 // cursor
+const cursor = document.querySelector(".cursor");
+
+let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+if(supportsTouch) {
+  cursor.style.display = "none";
+}
+
 document.body.addEventListener("mousemove", event => {
   const x = event.clientX;
   const y = event.clientY;
@@ -18,7 +19,6 @@ document.body.addEventListener("mousemove", event => {
 
 // hover links
 let links = Array.from(document.querySelectorAll(".link"));
-let cursor = document.querySelector(".cursor");
 
 links.forEach(link => {
   link.addEventListener("mouseover", () => {
@@ -31,12 +31,6 @@ links.forEach(link => {
     cursor.classList.remove("grow");
   })
 })
-
-// hide cursor if touch screen
-if(isTouchDevice) {
-  cursor.style.pointerEvents = "none";
-  cursor.style.display = "none";
-}
 
 // animate h1
 gsap.from(".h1-animated", {
@@ -63,7 +57,7 @@ function showImage(src) {
     imageContainer.style.display = "block";
     document.addEventListener("pointermove", mouseMove);
   }
-  if (isTouchDevice) {
+  if (supportsTouch) {
     imageContainer.style.display = "none";
   }
 }
