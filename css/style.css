@@ -196,7 +196,7 @@ nav li:nth-child(3) {
 
 /* Main section projects list + more projects list */
 .project-list {
-  height: 40vh;
+  height: 60vh;
   margin: 15px;
   width: 97%;
   max-width: 2500px;
@@ -319,10 +319,6 @@ main.about-page {
   .project-items,
   #projects {
     width: 85%;
-  }
-
-  .project-list {
-    height: 60vh;
   }
 
   #projects {
