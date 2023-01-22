@@ -139,8 +139,7 @@ header.index {
   overflow: hidden;
 }
 
-.hero,
-#projects {
+.hero {
   margin: 15px;
 }
 
@@ -197,7 +196,10 @@ nav li:nth-child(3) {
 
 /* Main section projects list + more projects list */
 .project-list {
-  height: 70vh;
+  height: 40vh;
+  margin: 15px;
+  width: 97%;
+  max-width: 2500px;
 }
 
 .project-items,
@@ -208,9 +210,7 @@ nav li:nth-child(3) {
 }
 
 .project-items {
-  margin: 15px auto;
-  width: 97%;
-  max-width: 2500px;
+  margin: auto;
 }
 
 .more-projects {
@@ -321,8 +321,13 @@ main.about-page {
     width: 85%;
   }
 
+  .project-list {
+    height: 60vh;
+  }
+
   #projects {
     margin: 0 auto;
+    margin-bottom: 2.75rem;
   }
 
   .project-items li {
@@ -362,6 +367,10 @@ main.about-page {
 
   #projects {
     margin-top: 200px;
+  }
+
+  .project-list {
+    height: 70vh;
   }
 
   main.about-page {
