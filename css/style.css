@@ -124,6 +124,10 @@ body { font-family: var(--ff-sans); }
 /* ---------------------- */
 /* Fixed sections         */
 /* ---------------------- */
+main,
+header {
+  max-width: 2500px;
+}
 
 /* Header */
 header.index {
@@ -132,12 +136,16 @@ header.index {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
 }
 
+.hero,
+#projects {
+  margin: 15px;
+}
+
 .h1-animated {
-  font-size: 9vw;
+  font-size: 8.6vw;
   line-height: 90%;
 }
 
@@ -200,9 +208,9 @@ nav li:nth-child(3) {
 }
 
 .project-items {
-  margin: auto;
-  width: 90%;
-  max-width: 1050px;
+  margin: 15px auto;
+  width: 97%;
+  max-width: 2500px;
 }
 
 .more-projects {
@@ -308,8 +316,13 @@ main.about-page {
   .fs-4 { font-size: 3rem; }
   .fs-5 { font-size: 4rem; }
 
-  .project-items {
-    width: 75%;
+  .project-items,
+  #projects {
+    width: 85%;
+  }
+
+  #projects {
+    margin: 0 auto;
   }
 
   .project-items li {
@@ -345,6 +358,10 @@ main.about-page {
 
   main.project-page {
     padding-top: 180px;
+  }
+
+  #projects {
+    margin-top: 200px;
   }
 
   main.about-page {
