@@ -198,7 +198,7 @@ nav li:nth-child(3) {
 .project-list {
   height: 60vh;
   margin: 15px;
-  width: 97%;
+  max-width: 97%;
   max-width: 2500px;
 }
 
