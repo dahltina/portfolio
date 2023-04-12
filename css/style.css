@@ -6,6 +6,14 @@
        font-style: normal;
 }
 
+@font-face {
+  font-family: 'ClashDisplay-Regular';
+  src: url('../assets/fonts/ClashDisplay-Regular.otf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
 /* ---------------------- */
 /* Costum properties      */
 /* ---------------------- */
@@ -17,8 +25,7 @@
   --clr-tertiary: #D6D9FF;
 
   /* font-families */
-  --ff-serif: "Liber-Regular", serif;
-  --ff-sans: "ibm-plex-mono", sans-serif;
+  --ff-sans: "ClashDisplay-Regular", sans-serif;
 }
 
 /* ---------------------- */
@@ -95,8 +102,6 @@ body {
 
 body { font-family: var(--ff-sans); }
 
-.ff-serif { font-family: var(--ff-serif); }
-
 .fs-1 { font-size: 1.125rem; }
 .fs-2 { font-size: 1.125rem; }
 .fs-3 { font-size: 1.75rem; }
@@ -126,7 +131,7 @@ body { font-family: var(--ff-sans); }
 /* ---------------------- */
 main,
 header {
-  max-width: 2500px;
+  max-width: 97%;
 }
 
 /* Header */
@@ -141,15 +146,12 @@ header.index {
 
 .hero {
   margin: 15px;
+  max-width: 1400px;
 }
 
 .h1-animated {
   font-size: 8.6vw;
   line-height: 90%;
-}
-
-.h1-animated .ff-serif {
-  line-height: 1%;
 }
 
 /* nav */
@@ -272,6 +274,12 @@ main.about-page {
   padding-top: 60px;
 }
 
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .project-hero-img,
 .about-hero-img {
   max-width: 1000px;
@@ -367,6 +375,7 @@ main.about-page {
 
   .project-list {
     height: 70vh;
+    margin-bottom: 200px;
   }
 
   main.about-page {
