@@ -369,6 +369,11 @@ main.about-page {
     padding-top: 180px;
   }
 
+  .image-container {
+    width: 600px;
+    height: 348px;
+  }
+
   #projects {
     margin-top: 200px;
   }
