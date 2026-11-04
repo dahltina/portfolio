@@ -1,6 +1,6 @@
 ---
-import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
-import projects from '../data/case-studies.json';
-const project = projects.find(project => project.slug === 'rom-eiendomsmegling')!;
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+import { getProject } from '../data/projects';
+const project = getProject('rom-eiendomsmegling');
 ---
-<CaseStudyLayout project={project} />
+<ProjectLayout project={project} />

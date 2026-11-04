@@ -1,0 +1,12 @@
+---
+interface Props { colors: { name: string; hex: string }[] }
+const { colors } = Astro.props;
+---
+<div class="color-palette">
+  {colors.map(color => (
+    <figure>
+      <div class="color-palette__swatch" style={`background-color: ${color.hex}`} />
+      <figcaption>{color.name}</figcaption>
+    </figure>
+  ))}
+</div>

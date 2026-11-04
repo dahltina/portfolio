@@ -2,37 +2,48 @@
 import BaseLayout from './BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import ProjectList from '../components/ProjectList.astro';
-import projects from '../data/projects.json';
+import ProjectFacts from '../components/ProjectFacts.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import LogoGrid from '../components/LogoGrid.astro';
+import ColorPalette from '../components/ColorPalette.astro';
+import { relatedProjects } from '../data/projects';
+import type { Project, GalleryLayout } from '../types/projects';
 
-interface Props {
-  project: (typeof projects)[keyof typeof projects];
-}
+interface Props { project: Project }
 const { project } = Astro.props;
 ---
 <BaseLayout
-  title={project.title}
-  description={project.description}
+  title={project.pageTitle ?? `Tina Dahl | ${project.name}`}
+  description={project.description ?? project.intro[0]}
   bodyClass="body-project"
 >
   <main class="project-page">
     <SocialLinks class="icons-desktop" />
-    <img {...project.image} />
-    <div class="project">
-      {project.year ? (
-        <div class="title-container margin-bottom-small">
-          <h1 class={project.headingClass}>{project.heading}</h1>
-          <p>{project.year}</p>
+    <article>
+      <img class="project-hero" {...project.hero} fetchpriority="high" />
+      <section class="project-intro" aria-labelledby="project-title">
+        <ProjectFacts project={project} />
+        <div class="project-copy">
+          <h1 id="project-title" class="fs-5">{project.name}</h1>
+          {project.headline && <h2 class="fs-3">{project.headline}</h2>}
+          {project.intro.map(paragraph => <p class="fs-1">{paragraph}</p>)}
         </div>
-      ) : <h1 class={project.headingClass}>{project.heading}</h1>}
-      <div class="project-container">
-        <div class="project-description margin-bottom">
-          <slot />
-        </div>
-      </div>
-    </div>
-    <h2 class="fs-4 margin-bottom">MORE PROJECTS</h2>
-    <div class="margin-bottom">
-      <ProjectList projects={project.related} />
-    </div>
+      </section>
+      {project.sections.map((section, index) => (
+        <section class="project-section" aria-labelledby={`section-${index}`}>
+          <h2 id={`section-${index}`} class="project-section-title fs-3">
+            <span aria-hidden="true">{String(index + 1).padStart(2, '0')} / </span>{section.title}
+          </h2>
+          {section.images && (section.layout === 'logos'
+            ? <LogoGrid images={section.images} />
+            : <ProjectGallery images={section.images} layout={section.layout as GalleryLayout} />)}
+          {section.colors && <ColorPalette colors={section.colors} />}
+        </section>
+      ))}
+    </article>
+    <section class="project-related" aria-labelledby="more-projects-heading">
+      <h2 id="more-projects-heading" class="fs-4">MORE PROJECTS</h2>
+      <ProjectList projects={relatedProjects(project)} />
+    </section>
   </main>
 </BaseLayout>

@@ -2,40 +2,13 @@
 interface Props {
   images: string[];
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 const { images, alt, width, height } = Astro.props;
 ---
 <div class="image-slideshow" role="img" aria-label={alt}>
   {images.map((src, index) => (
-    <img src={src} alt="" aria-hidden="true" width={width} height={height} style={`--frame-delay: ${index}s`} />
+    <img class="image-slideshow__frame" src={src} alt="" aria-hidden="true" width={width} height={height} style={`--frame-delay: ${index}s`} />
   ))}
 </div>
-
-<style>
-  .image-slideshow {
-    display: grid;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-  .image-slideshow img {
-    grid-area: 1 / 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    /* Four frames, displayed for exactly one second each. */
-    animation: switch-frame 4s steps(1, end) infinite;
-    animation-delay: var(--frame-delay);
-  }
-  @keyframes switch-frame {
-    0% { opacity: 1; }
-    25%, 100% { opacity: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .image-slideshow img { animation: none; opacity: 0; }
-    .image-slideshow img:first-child { opacity: 1; }
-  }
-</style>

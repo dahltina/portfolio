@@ -1,59 +1,16 @@
 ---
-interface Media {
-  src: string;
-  alt: string;
-  type?: string;
-  poster?: string;
-  width?: number;
-  height?: number;
-}
-interface Props {
-  images: Media[];
-  square?: boolean;
-}
-const { images, square = false } = Astro.props;
+import ProjectMedia from './ProjectMedia.astro';
+import type { ProjectMedia as Media, GalleryLayout } from '../types/projects';
+interface Props { images: Media[]; layout?: GalleryLayout }
+const { images, layout = 'grid' } = Astro.props;
+const uniform = ['square', 'portrait', 'specimen'].includes(layout);
 ---
-<div class:list={['project-gallery', { 'project-gallery-square': square }]}>
+<div class:list={['gallery', `gallery--${layout}`, { 'gallery--uniform': uniform }]}>
   {images.map(media => (
-    <div class="project-gallery__item">
-      {media.type === 'video' ? (
-        <video src={media.src} autoplay muted loop playsinline preload="metadata" poster={media.poster} aria-label={media.alt} />
-      ) : (
-        <img src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" decoding="async" />
-      )}
-    </div>
+    <figure class:list={['gallery__item', { 'gallery__item--panel': !!media.background, 'gallery__item--video': media.type === 'video' && !media.autoplay }]}
+      style={media.background ? `background-color: ${media.background}` : undefined}>
+      <ProjectMedia media={media} />
+      {media.type === 'video' && !media.autoplay && <figcaption class="fs-1">{media.alt}</figcaption>}
+    </figure>
   ))}
 </div>
-
-<style>
-  /* Match the shared Naiv gallery, including the NTR•BTY square variant. */
-  .project-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    align-items: center;
-    max-width: 1200px;
-    margin-inline: auto;
-  }
-  .project-gallery__item { min-width: 0; width: 100%; border-radius: 12px; overflow: hidden; }
-  .project-gallery__item img,
-  .project-gallery__item video { display: block; width: 100%; height: auto; }
-  .project-gallery__item:nth-child(2),
-  .project-gallery__item:nth-child(3) { height: 650px; overflow: hidden; }
-  .project-gallery__item:nth-child(2) img,
-  .project-gallery__item:nth-child(2) video,
-  .project-gallery__item:nth-child(3) img,
-  .project-gallery__item:nth-child(3) video { height: 100%; object-fit: cover; object-position: center; }
-  .project-gallery__item:nth-child(1) { justify-self: end; align-self: end; }
-  .project-gallery__item:nth-child(2) { justify-self: start; align-self: end; }
-  .project-gallery__item:nth-child(3) { justify-self: end; align-self: start; }
-  .project-gallery__item:nth-child(4) { justify-self: start; align-self: start; }
-  .project-gallery__item video { object-position: center 70%; }
-  .project-gallery-square .project-gallery__item { aspect-ratio: 1; height: auto; overflow: hidden; }
-  .project-gallery-square .project-gallery__item img,
-  .project-gallery-square .project-gallery__item video { height: 100%; object-fit: cover; }
-  @media (max-width: 760px) {
-    .project-gallery__item:nth-child(2),
-    .project-gallery__item:nth-child(3) { height: auto; }
-  }
-</style>

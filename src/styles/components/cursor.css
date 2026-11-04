@@ -1,0 +1,28 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  will-change: transform;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+.cursor.is-visible {
+  visibility: visible;
+}
+
+.cursor.grow {
+  width: 70px;
+  height: 70px;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease;
+}

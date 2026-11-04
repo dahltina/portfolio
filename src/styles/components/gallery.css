@@ -1,0 +1,289 @@
+/* Common media rules. Hero images are styled separately in pages/project.css. */
+.gallery,
+.logo-grid,
+.color-palette {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.gallery {
+  align-items: start;
+}
+
+.gallery__item {
+  width: 100%;
+  min-width: 0;
+}
+
+.gallery .project-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--media-radius);
+}
+
+.gallery__item--panel {
+  border-radius: var(--media-radius);
+  overflow: hidden;
+}
+
+.gallery--grid .project-media,
+.gallery--three .project-media,
+.gallery--stacked .project-media {
+  max-height: var(--gallery-tall-height);
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery__item--video {
+  grid-column: 1 / -1;
+}
+
+.gallery__item--video video {
+  aspect-ratio: 16 / 9;
+  background: #111;
+}
+
+.gallery__item--video figcaption {
+  margin-top: 0.75rem;
+}
+
+/* The offset Naiv layout used by Holidaze and Nomadlife. */
+.gallery--staggered,
+.gallery--square {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: var(--gallery-compact-max);
+  margin-inline: auto;
+  align-items: center;
+}
+
+.gallery--staggered .gallery__item {
+  border-radius: var(--media-radius);
+  overflow: hidden;
+}
+
+.gallery--staggered .gallery__item:nth-child(-n + 2) {
+  align-self: end;
+}
+
+.gallery--staggered .gallery__item:nth-child(n + 3) {
+  align-self: start;
+}
+
+.gallery--staggered .gallery__item:nth-child(2),
+.gallery--staggered .gallery__item:nth-child(3) {
+  height: var(--gallery-tall-height);
+}
+
+.gallery--staggered .gallery__item:nth-child(2) .project-media,
+.gallery--staggered .gallery__item:nth-child(3) .project-media {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery--staggered video {
+  object-position: center 70%;
+}
+
+/* Uniform layouts share their implementation; only the ratio differs. */
+.gallery--square {
+  --gallery-ratio: 1;
+}
+
+.gallery--portrait {
+  --gallery-ratio: 2 / 3;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gallery--specimen {
+  --gallery-ratio: 4 / 5;
+}
+
+.gallery--uniform {
+  align-items: stretch;
+}
+
+.gallery--uniform .gallery__item {
+  aspect-ratio: var(--gallery-ratio);
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
+  overflow: hidden;
+  border-radius: var(--media-radius);
+}
+
+.gallery--uniform .project-media,
+.gallery--uniform .image-slideshow {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery--square video {
+  object-position: center 70%;
+}
+
+/* Logo panels and palettes have their own layouts, sharing spacing and corners. */
+.logo-grid,
+.color-palette {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.logo-grid__panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--media-radius);
+}
+
+.logo-grid__panel .project-media {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 70%;
+  height: 28%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.color-palette__swatch {
+  aspect-ratio: 1;
+  border-radius: var(--media-radius);
+}
+
+.color-palette figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 0.5rem;
+  padding-top: 0.6rem;
+}
+
+.image-slideshow {
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--media-radius);
+}
+
+.image-slideshow__frame {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: switch-frame 4s steps(1, end) infinite;
+  animation-delay: var(--frame-delay);
+}
+
+.gallery--uniform .image-slideshow__frame {
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes switch-frame {
+  0% {
+    opacity: 1;
+  }
+  25%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 521px) {
+  .logo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 700px) {
+  .gallery--grid,
+  .gallery--three,
+  .gallery--stacked,
+  .gallery--specimen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery--grid .gallery__item:nth-child(4n + 1),
+  .gallery--grid .gallery__item:nth-child(4n + 2),
+  .gallery--three .gallery__item:nth-child(4n + 1),
+  .gallery--three .gallery__item:nth-child(4n + 2) {
+    align-self: end;
+  }
+
+  .gallery--grid .gallery__item:nth-child(4n + 3),
+  .gallery--grid .gallery__item:nth-child(4n + 4),
+  .gallery--three .gallery__item:nth-child(4n + 3),
+  .gallery--three .gallery__item:nth-child(4n + 4) {
+    align-self: start;
+  }
+
+  .gallery__item:only-child {
+    grid-column: 1 / -1;
+  }
+
+  .gallery--stacked .gallery__item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+  }
+
+  .gallery--stacked .gallery__item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: stretch;
+  }
+
+  .gallery--stacked .gallery__item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    position: relative;
+    align-self: stretch;
+  }
+
+  .gallery--stacked .gallery__item:nth-child(2) .project-media {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .color-palette {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .gallery--staggered .gallery__item:nth-child(2),
+  .gallery--staggered .gallery__item:nth-child(3) {
+    height: auto;
+  }
+}
+
+@media (min-width: 1050px) {
+  .gallery--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .gallery--three .gallery__item:nth-child(n) {
+    align-self: end;
+  }
+  .color-palette {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-slideshow__frame {
+    animation: none;
+    opacity: 0;
+  }
+  .image-slideshow__frame:first-child {
+    opacity: 1;
+  }
+}

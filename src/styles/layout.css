@@ -1,0 +1,87 @@
+main,
+header {
+  max-width: 97%;
+}
+
+nav {
+  position: absolute;
+}
+
+.logo,
+nav li {
+  position: fixed;
+}
+
+.logo {
+  top: var(--page-edge);
+  left: var(--page-edge);
+}
+
+nav li {
+  text-transform: uppercase;
+}
+
+nav li:nth-child(1) {
+  top: var(--page-edge);
+  right: var(--page-edge);
+}
+
+nav li:nth-child(2) {
+  bottom: var(--page-edge);
+  left: var(--page-edge);
+}
+
+nav li:nth-child(3) {
+  bottom: var(--page-edge);
+  right: var(--page-edge);
+}
+
+.body-project .logo,
+.body-project nav li {
+  line-height: 1;
+}
+
+.body-project > header:not(.index) {
+  height: calc(var(--text-nav) + 2 * var(--page-edge));
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  padding: 10px 0;
+  max-width: 50px;
+  max-height: 50px;
+  display: inline-block;
+}
+
+.icons-desktop {
+  display: none;
+}
+
+.project-page .icons-desktop,
+.about-page .icons-desktop {
+  position: fixed;
+  top: 35vh;
+}
+
+footer {
+  padding: var(--page-edge) 0;
+}
+
+.icons-footer {
+  padding: 2rem 0;
+}
+
+@media (min-width: 700px) {
+  .icons-desktop {
+    max-width: 50px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: var(--page-edge);
+  }
+
+  .icons-footer {
+    display: none;
+  }
+}

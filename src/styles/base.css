@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "ClashDisplay-Regular";
+  src: url("/assets/fonts/ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --clr-primary: #ffe8ac;
+  --clr-secondary: #ffc9ac;
+  --clr-tertiary: #d6d9ff;
+  --ff-sans: "ClashDisplay-Regular", sans-serif;
+  --media-radius: 12px;
+  --grid-gap: 12px;
+  --page-edge: 15px;
+  --content-width: 85%;
+  --content-max: 1600px;
+  --gallery-compact-max: 1200px;
+  --gallery-tall-height: 650px;
+  --text-body: 1.125rem;
+  --text-nav: 1.125rem;
+  --text-link: 1.75rem;
+  --text-section: 2rem;
+  --text-title: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  margin: 0;
+  font-weight: 400;
+}
+
+body {
+  background-color: var(--clr-primary);
+  font-family: var(--ff-sans);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.fs-1 {
+  font-size: var(--text-body);
+}
+
+.fs-2 {
+  font-size: var(--text-nav);
+}
+
+.fs-3 {
+  font-size: var(--text-link);
+}
+
+.fs-4 {
+  font-size: var(--text-section);
+}
+
+.fs-5 {
+  font-size: var(--text-title);
+}
+
+.link-regular {
+  border-bottom: 2px solid black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.margin-bottom-small {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --text-body: 1.275rem;
+    --text-nav: 1.275rem;
+    --text-section: 3rem;
+    --text-title: 4rem;
+  }
+
+  .margin-bottom-small {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1050px) {
+  :root {
+    --text-nav: 2rem;
+    --text-section: 3.5rem;
+    --text-title: 5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

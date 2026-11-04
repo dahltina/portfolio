@@ -1,0 +1,17 @@
+---
+import ImageSlideshow from './ImageSlideshow.astro';
+import type { ProjectMedia } from '../types/projects';
+interface Props { media: ProjectMedia }
+const { media } = Astro.props;
+---
+{media.type === 'slideshow' && media.slides ? (
+  <ImageSlideshow images={media.slides} alt={media.alt} width={media.width} height={media.height} />
+) : media.type === 'video' ? (
+  <video class="project-media" src={media.src} autoplay={media.autoplay} muted={media.autoplay}
+    loop={media.autoplay} controls={!media.autoplay} playsinline
+    preload={media.autoplay ? 'metadata' : 'none'} poster={media.poster} aria-label={media.alt}>
+    {!media.autoplay && <a href={media.src}>Watch {media.alt}</a>}
+  </video>
+) : (
+  <img class="project-media" src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" decoding="async" />
+)}

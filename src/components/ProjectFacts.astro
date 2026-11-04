@@ -1,0 +1,19 @@
+---
+import type { Project } from '../types/projects';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<dl class="project-facts fs-1">
+  {project.type && <div><dt>Project</dt><dd>{project.type}</dd></div>}
+  {project.type && <div><dt>My role</dt><dd>{project.category}</dd></div>}
+  {project.tools?.length && <div><dt>Tools & technology</dt><dd>{project.tools.join(' · ')}</dd></div>}
+  {project.year && <div><dt>Year</dt><dd>{project.year}</dd></div>}
+  {project.links.length > 0 && (
+    <div>
+      <dt>Links</dt>
+      <dd class="project-links">
+        {project.links.map(link => <a href={link.href} class="link link-regular" target="_blank" rel="noopener noreferrer">{link.label}</a>)}
+      </dd>
+    </div>
+  )}
+</dl>

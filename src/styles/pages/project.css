@@ -1,0 +1,118 @@
+.body-project {
+  background-color: var(--clr-secondary);
+}
+
+.project-page {
+  margin-inline: auto;
+  padding: 0 var(--page-edge) 5rem;
+}
+
+.project-hero {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  margin-inline: calc(50% - 50vw);
+  border: none;
+  border-radius: 0;
+}
+
+.project-intro {
+  display: grid;
+  gap: 2.5rem;
+  margin: 3rem 0 5rem;
+}
+
+.project-facts {
+  margin: 0;
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.project-facts dt {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.project-facts dd {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.project-copy {
+  max-width: 700px;
+}
+
+.project-copy h1 {
+  overflow-wrap: anywhere;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.project-copy h2 {
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.project-copy p {
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.project-section {
+  margin-bottom: clamp(3rem, 7vw, 7rem);
+}
+
+.project-section-title {
+  border-top: 1px solid black;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-related {
+  margin-top: 5rem;
+}
+
+.project-related h2 {
+  margin: 3rem 0 2rem;
+}
+
+.project-related li {
+  gap: 1rem;
+}
+
+.project-related li span:last-child {
+  text-align: right;
+}
+
+@media (min-width: 700px) {
+  .project-page {
+    width: var(--content-width);
+  }
+
+  .project-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1050px) {
+  .project-page {
+    max-width: var(--content-max);
+  }
+
+  .project-intro {
+    margin-bottom: 6rem;
+    gap: 5rem;
+  }
+}

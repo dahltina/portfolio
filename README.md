@@ -1,7 +1,7 @@
-# Portfolio 2023
+# Tina Dahl portfolio
 
-A static Astro portfolio with expanded case studies. The original visual style,
-classic JavaScript, and existing `.html` URLs are preserved.
+A static Astro portfolio. Existing `.html` routes are retained, including the
+unfeatured Rainy Days and BT Pomaire pages.
 
 ## Development
 
@@ -12,37 +12,64 @@ npm install
 npm run dev
 ```
 
+When you want to validate or publish:
+
 ```sh
 npm run build
 npm run check:links
 npm run preview
 ```
 
-Deploy the generated `dist/` folder to static hosting. No application server is needed.
+Deploy `dist/` to static hosting. No application server is required.
 
-## Structure
+## Where to make changes
 
-- `src/pages/`: homepage, about page, seven featured case studies, and legacy project URLs.
-- `src/layouts/BaseLayout.astro`: shared metadata, navigation, footer, and scripts.
-- `src/layouts/CaseStudyLayout.astro`: responsive case study layout with project facts, galleries, videos, logo panels, and colour palettes.
-- `src/data/case-studies.json`: featured project content, image dimensions, website URLs, and GitHub links. Each section can contain `images` or `colors`; use `layout: "logos"` for padded logo panels. Videos use `type: "video"` and a `poster`.
-- `src/data/home-projects.json`: homepage project order, labels, and hover previews.
-- `src/layouts/ProjectLayout.astro` and `src/data/projects.json`: retained for the legacy Rainy Days and BT Pomaire pages.
-- `src/components/`: header, footer, social links, and project lists.
-- `src/data/social-links.json`: shared social links and icons.
-- `public/assets/images/projects/`: assets copied from the local `naiv-agency` project. No runtime dependency on that checkout.
-- `public/css/style.css`: original global styles plus spacing for the longer homepage list. Case study layout rules are scoped to `CaseStudyLayout.astro`.
+- `src/data/projects.json`: the single source of project content, links, galleries,
+  preview images and featured status. Array order controls the homepage order.
+- `src/data/projects.ts`: lookup and list helpers, derived from that content.
+- `src/types/projects.ts`: shared content types.
+- `src/pages/`: route files selecting a project, plus the home and About content.
+- `src/layouts/ProjectLayout.astro`: the shared layout for every project.
+- `src/layouts/BaseLayout.astro`: shared document, header, footer and scripts.
+- `src/components/`: shared project facts, media, galleries, logo grids, palettes,
+  slideshows, navigation and project lists.
+- `src/styles/`: all stylesheet rules. There are no Astro `<style>` blocks.
+- `public/assets/`: images, videos, icons and fonts.
+- `public/js/main.js`: the cursor, hover previews and homepage animation.
 
-## Project content
+## Styles
 
-The featured lineup is ROM Eiendomsmegling, Tina Dahl, BT Bjørvika, Holidaze,
-NTR•BTY, and Nomadlife. Original website project URLs
-are retained. Rainy Days and BT Pomaire remain accessible through their existing
-URLs but are no longer featured. Case study copy is in English, adapted from Naiv.
+`BaseLayout` imports `src/styles/main.css` once. That file imports:
 
-Videos have native playback controls and load on demand. Image dimensions reserve
-space while lazy-loaded galleries arrive. Type specimen variations are displayed
-as still images so every variation is accessible without automatic animation.
+- `base.css`: design variables, font, reset, type scale and utilities.
+- `layout.css`: navigation, header, footer and social links.
+- `components/cursor.css`: custom cursor.
+- `components/project-list.css`: project lists and responsive hover previews.
+- `components/gallery.css`: galleries, logo panels, colour palettes and slideshows.
+- `pages/home.css`, `pages/about.css`, `pages/project.css`: page layout rules.
 
-The Projects navigation always points to the home page project section.
-Run `npm run check:links` after building to verify every internal link and anchor.
+Change `--media-radius` or `--grid-gap` in `base.css` to update shared 12px corners
+and grid spacing. Full-bleed project heroes intentionally have square corners.
+Hover previews preserve their aspect ratio within 420px width and half the viewport height.
+
+## Gallery variants
+
+Each project section declares its layout instead of overriding component CSS by slug:
+
+- `grid`: regular responsive gallery.
+- `three`: three columns on desktop.
+- `staggered`: offset two-column layout used by Holidaze and Nomadlife.
+- `stacked`: two images beside one tall image, used for ROM print and signage.
+- `square`: uniform 1:1 tiles, used by NTR•BTY.
+- `portrait`: full-content-width 2:3 tiles, used by Tina Dahl.
+- `specimen`: uniform 4:5 tiles, used by BT Bjørvika.
+- `logos`: four logo/button panels on desktop.
+- `palette`: colour swatches with names only.
+
+Gallery videos have `autoplay: true`, are muted, loop, and use first-frame posters.
+The BT Bjørvika slideshows contain four frames shown for one second each; the final
+two-image animation repeats its pair. Reduced-motion preferences show the first frame.
+
+Use `featured: false` for accessible project URLs omitted from the homepage and
+the default related-project list. `relatedSlugs` can select a custom related list.
+Inline background colours are content data; all styling rules live in `src/styles/`.

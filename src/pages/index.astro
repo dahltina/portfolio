@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import ProjectList from '../components/ProjectList.astro';
-import projects from '../data/home-projects.json';
+import { featuredProjects, projectLink } from '../data/projects';
+const projects = featuredProjects.map(projectLink);
 ---
 <BaseLayout
   title="Tina Dahl | Frontend developer and designer"

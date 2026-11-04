@@ -1,0 +1,13 @@
+---
+import ProjectMedia from './ProjectMedia.astro';
+import type { ProjectMedia as Media } from '../types/projects';
+interface Props { images: Media[] }
+const { images } = Astro.props;
+---
+<div class="logo-grid">
+  {images.map(media => (
+    <figure class="logo-grid__panel" style={media.background ? `background-color: ${media.background}` : undefined}>
+      <ProjectMedia media={media} />
+    </figure>
+  ))}
+</div>

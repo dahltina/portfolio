@@ -1,0 +1,47 @@
+header.index {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero {
+  margin: var(--page-edge);
+  max-width: 1400px;
+}
+
+.h1-animated {
+  font-size: 8.6vw;
+  line-height: 90%;
+}
+
+.project-list {
+  height: auto;
+  min-height: 60vh;
+  margin: var(--page-edge);
+  max-width: 2500px;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 700px) {
+  .project-items,
+  #projects {
+    width: var(--content-width);
+  }
+
+  #projects {
+    margin: 0 auto 2.75rem;
+  }
+}
+
+@media (min-width: 1050px) {
+  #projects {
+    margin-top: 200px;
+  }
+
+  .project-list {
+    margin-bottom: 200px;
+  }
+}
