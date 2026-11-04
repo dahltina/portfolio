@@ -7,9 +7,7 @@
 }
 
 :root {
-  --clr-primary: #ffe8ac;
-  --clr-secondary: #ffc9ac;
-  --clr-tertiary: #d6d9ff;
+  --clr-primary: #f6efea;
   --ff-sans: "ClashDisplay-Regular", sans-serif;
   --media-radius: 12px;
   --grid-gap: 12px;
