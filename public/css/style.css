@@ -41,6 +41,10 @@
 
 .cursor {
   position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  will-change: transform;
   background-color: white;
   width: 40px;
   height: 40px;
@@ -52,10 +56,14 @@
   transform: translate(-50%, -50%);
 }
 
+.cursor.is-visible {
+  visibility: visible;
+}
+
 .cursor.grow {
   width: 70px;
   height: 70px;
-  transition: 0.2s all ease;
+  transition: width 0.2s ease, height 0.2s ease;
 }
 
 body,
@@ -397,7 +405,7 @@ main.about-page {
   .project,
   .about {
     margin-bottom: 0;
-    height: 90vh;
+    min-height: 90vh;
   }
 }
 

@@ -1,36 +1,52 @@
-// cursor
+// Update the cursor once per display frame, using the latest pointer position.
 const cursor = document.querySelector(".cursor");
-
 let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+let cursorFrame = null;
+let cursorX = 0;
+let cursorY = 0;
 
-if(supportsTouch) {
-  cursor.style.display = "none";
+function renderCursor() {
+  cursorFrame = null;
+  cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+  cursor.classList.add("is-visible");
 }
 
-document.body.addEventListener("mousemove", event => {
-  const x = event.clientX;
-  const y = event.clientY;
+function moveCursor(event) {
+  if (!cursor || event.pointerType !== "mouse") return;
+  cursorX = event.clientX;
+  cursorY = event.clientY;
+  if (cursorFrame === null) {
+    cursorFrame = requestAnimationFrame(renderCursor);
+  }
+}
 
-  gsap.set(".cursor", {
-    x: x,
-    y: y,
-  })
-})
+function hideCursor() {
+  if (cursorFrame !== null) {
+    cancelAnimationFrame(cursorFrame);
+    cursorFrame = null;
+  }
+  cursor?.classList.remove("is-visible", "grow");
+}
 
-// hover links
-let links = Array.from(document.querySelectorAll(".link"));
+document.addEventListener("pointermove", moveCursor, { passive: true });
+document.documentElement.addEventListener("pointerleave", hideCursor);
+window.addEventListener("blur", hideCursor);
+window.addEventListener("pagehide", hideCursor);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) hideCursor();
+});
 
-links.forEach(link => {
-  link.addEventListener("mouseover", () => {
+// Enter/leave avoids repeatedly changing hover state over a link's children.
+document.querySelectorAll(".link").forEach(link => {
+  link.addEventListener("pointerenter", event => {
+    if (event.pointerType !== "mouse" || !cursor) return;
     cursor.classList.add("grow");
-  })
-})
-
-links.forEach(link => {
-  link.addEventListener("mouseleave", () => {
-    cursor.classList.remove("grow");
-  })
-})
+    moveCursor(event);
+  });
+  link.addEventListener("pointerleave", () => {
+    cursor?.classList.remove("grow");
+  });
+});
 
 // animate h1
 gsap.from(".h1-animated", {
@@ -47,7 +63,6 @@ let imageContainer = document.querySelector(".image-container");
 const mouseMove = (event) => {
   imageContainer.style.left = event.pageX + "px";
   imageContainer.style.top = event.pageY + "px";
-  console.log("hover");
 }
 
 function showImage(src) {
