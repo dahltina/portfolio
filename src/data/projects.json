@@ -268,10 +268,9 @@
     "tools": [
       "Glyphs"
     ],
-    "headline": "A modern sans serif in seven weights.",
+    "headline": "A modern inktrap sans serif in seven weights.",
     "intro": [
-      "BT Bjørvika is a contemporary sans serif family developed under Bad Type. It combines clean geometric shapes with a character that works in both large headlines and smaller text.",
-      "The family includes seven weights, from ExtraLight to Black. The project covers type design, character set development and a visual presentation exploring the typeface through typographic compositions."
+      "BT Bjørvika is a contemporary sans serif font family developed under Bad Type. The family includes seven weights, from ExtraLight to Black."
     ],
     "hero": {
       "src": "/assets/images/projects/bt-bjorvika/hero.jpg",
@@ -367,7 +366,7 @@
     ],
     "headline": "A cohesive identity for experiences in Bergen.",
     "intro": [
-      "Holidaze Bergen is a student project for accommodation and travel experiences in Bergen. A calm, natural palette, an illustrative logo and clear typography create an identity that feels welcoming and trustworthy.",
+      "Holidaze Bergen is a student project for accommodation and travel experiences in Bergen. The goal was to create an identity that feels welcoming and trustworthy.",
       "The website helps visitors find hotels, B&Bs and guesthouses, and allows accommodation owners to receive enquiries. I designed the identity and interface and developed the website with React, Bootstrap and WordPress."
     ],
     "hero": {
@@ -509,8 +508,7 @@
     ],
     "headline": "A playful identity and online store for a beauty concept.",
     "intro": [
-      "NTR•BTY is a fictional beauty brand built around bold colours, experimental shapes and a distinct visual identity. The project explores how typography, colour and graphic elements can create an energetic, modern expression.",
-      "For this student project, I designed and developed an e-commerce website for beauty products, focusing on an intuitive shopping experience and a consistent identity across the store and brand applications."
+      "NTR•BTY is a fictional beauty brand built around bold colours, experimental shapes and a distinct visual identity. The project explores how typography, colour and graphic elements can create an energetic, modern expression while keeping the website user friendly and intuitive."
     ],
     "hero": {
       "src": "/assets/images/projects/ntrbty/ntr-bty-hero.jpg",
@@ -671,10 +669,10 @@
       "CSS",
       "Wordpress"
     ],
-    "headline": "Travel far. Live freely.",
+    "headline": "A blog to inspire solo travellers",
     "intro": [
       "Nomadlife is a travel blog focused on women travelling solo and life as a digital nomad. It combines travel inspiration, personal stories and practical tips with warm pastels, contrasts and atmospheric photography.",
-      "Created as a student project, the site is built with HTML, CSS and JavaScript, using WordPress as a CMS. The aim was an inspiring, easy-to-use platform that encourages women to explore the world on their own terms."
+      "Created as a student project, the site is built with HTML, CSS and JavaScript, using WordPress as a CMS."
     ],
     "hero": {
       "src": "/assets/images/projects/nomadlife/nomadlife-hero.webp",
