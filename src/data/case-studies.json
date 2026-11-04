@@ -641,7 +641,7 @@
         "layout": "naiv"
       },
       {
-        "title": "Logo & interface",
+        "title": "Logo & buttons",
         "images": [
           {
             "src": "/assets/images/projects/nomadlife/nomadlife-logo-dark.png",
@@ -670,48 +670,6 @@
             "background": "#FADAC5",
             "width": 397,
             "height": 118
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-heart-dark.png",
-            "alt": "Nomadlife heart icon in dark",
-            "background": "#C9CEE3",
-            "width": 97,
-            "height": 89
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-heart-peach.png",
-            "alt": "Nomadlife heart icon in peach",
-            "background": "#283879",
-            "width": 97,
-            "height": 89
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-search-dark.png",
-            "alt": "Nomadlife search icon in dark",
-            "background": "#C9CEE3",
-            "width": 98,
-            "height": 98
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-search-peach.png",
-            "alt": "Nomadlife search icon in peach",
-            "background": "#283879",
-            "width": 98,
-            "height": 98
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-menu-dark.png",
-            "alt": "Nomadlife menu icon in dark",
-            "background": "#C9CEE3",
-            "width": 83,
-            "height": 82
-          },
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-icon-menu-peach.png",
-            "alt": "Nomadlife menu icon in peach",
-            "background": "#283879",
-            "width": 83,
-            "height": 82
           }
         ],
         "layout": "logos"
