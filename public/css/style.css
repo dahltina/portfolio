@@ -353,6 +353,15 @@ main.project-page {
   background-color: var(--clr-tertiary);
 }
 
+.about-hero-img {
+  display: block;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: center 20%;
+  align-self: start;
+}
+
 /* ---------------------- */
 /* Tablets                */
 /* ---------------------- */
