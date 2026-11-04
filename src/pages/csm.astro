@@ -1,21 +1,6 @@
 ---
-import ProjectLayout from '../layouts/ProjectLayout.astro';
-import projects from '../data/projects.json';
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+import projects from '../data/case-studies.json';
+const project = projects.find(project => project.slug === 'csm')!;
 ---
-<ProjectLayout project={projects["csm"]}>
-  <p class="fs-1">
-    A school project where the goal was to create a website for a new science museum that's about to open.
-  </p>
-  <br/>
-  <p class="fs-1 margin-bottom">
-    The target audience is school children aged 7 - 15 and their parents.
-    This project was a part of our first exam in the studies, where we had
-    learned a bit of design, HTML and CSS.
-  </p>
-  <div class="fs-3 margin-bottom-small">
-    <a class="link link-regular" target="_blank" href="https://github.com/dahltina/community-science-museum">GitHub</a>
-  </div>
-  <div class="fs-3">
-    <a class="link link-regular" target="_blank" href="https://tinadahl-csm.netlify.app">Website</a>
-  </div>
-</ProjectLayout>
+<CaseStudyLayout project={project} />

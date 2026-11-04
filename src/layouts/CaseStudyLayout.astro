@@ -1,0 +1,176 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import ProjectList from '../components/ProjectList.astro';
+import projects from '../data/case-studies.json';
+
+type Project = (typeof projects)[number];
+interface Props { project: Project }
+const { project } = Astro.props;
+const related = projects.filter(item => item.slug !== project.slug).map(item => ({
+  href: `${item.slug}.html`, title: item.name,
+  category: item.category.replace('Frontend development', 'Frontend'),
+}));
+---
+<BaseLayout title={`Tina Dahl | ${project.name}`} description={project.intro[0]} bodyClass="body-project">
+  <main class="project-page case-study">
+    <SocialLinks class="icons-desktop" />
+    <article>
+      <header class="case-heading">
+        <h1 class="fs-5">{project.name}</h1>
+        <p class="fs-1">{project.category}{project.year && ` / ${project.year}`}</p>
+      </header>
+      <img class="case-hero" {...project.hero} fetchpriority="high" />
+      <section class="case-intro" aria-labelledby="case-headline">
+        <dl class="case-facts fs-1">
+          <div><dt>Project</dt><dd>{project.type}</dd></div>
+          <div><dt>My role</dt><dd>{project.category}</dd></div>
+          <div><dt>Tools & technology</dt><dd>{project.tools.join(' · ')}</dd></div>
+          {project.year && <div><dt>Year</dt><dd>{project.year}</dd></div>}
+        </dl>
+        <div class="case-copy">
+          <h2 id="case-headline" class="fs-3">{project.headline}</h2>
+          {project.intro.map(paragraph => <p class="fs-1">{paragraph}</p>)}
+          {(project.website || project.github) && (
+            <div class="case-links fs-3">
+              {project.website && <a href={project.website} class="link link-regular" target="_blank" rel="noopener noreferrer">View website ↗</a>}
+              {project.github && <a href={project.github} class="link link-regular" target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
+            </div>
+          )}
+        </div>
+      </section>
+      {project.sections.map((section, index) => (
+        <section class="case-section" aria-labelledby={`section-${index}`}>
+          <h2 id={`section-${index}`} class="case-section-title fs-3">
+            <span aria-hidden="true">{String(index + 1).padStart(2, '0')} / </span>{section.title}
+          </h2>
+          {'images' in section && section.images && (
+            <div class:list={['case-gallery', { 'case-logos': 'layout' in section && section.layout === 'logos', 'case-gallery-stacked': 'layout' in section && section.layout === 'stacked-left', 'case-gallery-three': section.images.length === 3 && !('layout' in section && section.layout === 'stacked-left') }]}>
+              {section.images.map(media => (
+                <figure class:list={{ 'case-video': 'type' in media && media.type === 'video' }} style={'background' in media ? `background-color: ${media.background}` : undefined}>
+                  {'type' in media && media.type === 'video' ? (
+                    <video controls playsinline preload="none" poster={'poster' in media ? media.poster : undefined} aria-label={media.alt}>
+                      <source src={media.src} type="video/mp4" />
+                      <a href={media.src}>Watch {media.alt}</a>
+                    </video>
+                  ) : <img src={media.src} alt={media.alt} width={'width' in media ? media.width : undefined} height={'height' in media ? media.height : undefined} loading="lazy" decoding="async" />}
+                  {'type' in media && media.type === 'video' && <figcaption class="fs-1">{media.alt}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          )}
+          {'colors' in section && section.colors && (
+            <div class="case-palette">
+              {section.colors.map(color => (
+                <figure>
+                  <div class="case-swatch" style={`background-color: ${color.hex}`} />
+                  <figcaption><span>{color.name}</span><span>{color.hex.toUpperCase()}</span></figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+        </section>
+      ))}
+    </article>
+    <section class="case-related" aria-labelledby="more-projects-heading">
+      <h2 id="more-projects-heading" class="fs-4">MORE PROJECTS</h2>
+      <ProjectList projects={related} />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Keep the site's colours, type scale, navigation and links; only expand the case study layout. */
+  .case-study { padding-bottom: 5rem; }
+  .case-heading { max-width: none; margin-bottom: 2rem; }
+  .case-heading h1 { overflow-wrap: anywhere; line-height: 1.05; margin-bottom: 1rem; }
+  .case-hero { display: block; width: 100%; height: auto; border: 2px solid black; border-radius: 20px; }
+  .case-intro { display: grid; gap: 2.5rem; margin: 3rem 0 5rem; }
+  .case-facts { margin: 0; display: grid; align-content: start; gap: 1.25rem; }
+  .case-facts dt { font-size: .8em; text-transform: uppercase; margin-bottom: .35rem; }
+  .case-facts dd { margin: 0; line-height: 1.5; }
+  .case-copy { max-width: 700px; }
+  .case-copy h2 { margin-bottom: 1.5rem; line-height: 1.2; }
+  .case-copy p { line-height: 1.6; margin-bottom: 1.25rem; }
+  .case-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+  .case-section { margin-bottom: clamp(3rem, 7vw, 7rem); }
+  .case-section-title { border-top: 1px solid black; padding-top: 1rem; margin-bottom: 1.5rem; }
+  .case-gallery { display: grid; gap: 1rem; align-items: start; }
+  figure { margin: 0; min-width: 0; }
+  .case-gallery img { display: block; width: 100%; height: auto; border-radius: 12px; }
+  .case-gallery:not(.case-logos) img {
+    max-height: 650px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .case-video { grid-column: 1 / -1; }
+  .case-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #111; border-radius: 12px; }
+  .case-video figcaption { margin-top: .75rem; }
+  .case-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-logos figure { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; }
+  .case-logos img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 70%;
+    height: 28%;
+    object-fit: contain;
+    border-radius: 0;
+  }
+  .case-palette { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .case-swatch { aspect-ratio: 1; border: 1px solid rgb(0 0 0 / 15%); border-radius: 12px; }
+  .case-palette figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .5rem; padding-top: .6rem; }
+  .case-related { margin-top: 5rem; }
+  .case-related h2 { margin: 3rem 0 2rem; }
+  .case-related :global(li) { gap: 1rem; }
+  .case-related :global(li span:last-child) { text-align: right; }
+  @media (min-width: 521px) {
+    .case-gallery.case-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (min-width: 700px) {
+    .case-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 3rem; margin-top: 4rem; }
+    .case-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    /* Bring each two-row group together at its middle seam, as on Naiv. */
+    .case-gallery:not(.case-logos) > figure:nth-child(4n + 1),
+    .case-gallery:not(.case-logos) > figure:nth-child(4n + 2) {
+      align-self: end;
+    }
+    .case-gallery:not(.case-logos) > figure:nth-child(4n + 3),
+    .case-gallery:not(.case-logos) > figure:nth-child(4n + 4) {
+      align-self: start;
+    }
+    .case-gallery figure:only-child { grid-column: 1 / -1; }
+    .case-gallery.case-gallery-stacked { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case-gallery.case-gallery-stacked > figure:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: stretch;
+    }
+    .case-gallery.case-gallery-stacked > figure:nth-child(3) {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: stretch;
+    }
+    .case-gallery.case-gallery-stacked > figure:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      position: relative;
+      align-self: stretch;
+    }
+    .case-gallery.case-gallery-stacked > figure:nth-child(2) img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+    }
+    .case-palette { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1050px) {
+    .case-gallery-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .case-gallery-three:not(.case-logos) > figure:nth-child(n) { align-self: end; }
+    main.case-study { padding-top: 140px; max-width: 1600px; }
+    .case-intro { margin-bottom: 6rem; gap: 5rem; }
+    .case-palette { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
+</style>

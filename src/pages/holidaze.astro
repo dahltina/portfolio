@@ -1,22 +1,6 @@
 ---
-import ProjectLayout from '../layouts/ProjectLayout.astro';
-import projects from '../data/projects.json';
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+import projects from '../data/case-studies.json';
+const project = projects.find(project => project.slug === 'holidaze')!;
 ---
-<ProjectLayout project={projects["holidaze"]}>
-  <br/>
-  <p class="fs-1">
-    Holidaze Bergen is a hotel booking site for accommodations in Bergen.
-  </p>
-  <br/>
-  <p class="fs-1 margin-bottom">
-    A school project where the goal was to create a site for a new local
-    tourism agency in Bergen, for visitors to the area to be able to find hotels,
-    B&Bs and guesthouses, and for the accommodation owners to receive enquiries.
-  </p>
-  <div class="fs-3 margin-bottom-small">
-    <a class="link link-regular" target="_blank" href="https://github.com/dahltina/project-exam-2-dahltina">GitHub</a>
-  </div>
-  <div class="fs-3">
-    <a class="link link-regular" target="_blank" href="https://holidazebergen.netlify.app">Website</a>
-  </div>
-</ProjectLayout>
+<CaseStudyLayout project={project} />

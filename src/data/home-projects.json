@@ -1,64 +1,79 @@
 [
   {
-    "href": "nt-pomaire.html",
-    "title": "BT Pomaire ",
+    "href": "rom-eiendomsmegling.html",
+    "title": "ROM Eiendomsmegling",
+    "category": "Visual identity, Webdesign",
+    "image": {
+      "class": "image-container",
+      "src": "/assets/images/projects/rom/rom-hero-optimized.jpg",
+      "alt": "ROM Eiendomsmegling — project cover"
+    },
+    "wrappedImage": false
+  },
+  {
+    "href": "tina-dahl.html",
+    "title": "Tina Dahl",
+    "category": "Webdesign, Frontend",
+    "image": {
+      "class": "image-container",
+      "src": "/assets/images/projects/tinadahl/suom-03.jpg",
+      "alt": "Tina Dahl — photography portfolio cover"
+    },
+    "wrappedImage": false
+  },
+  {
+    "href": "bt-bjorvika.html",
+    "title": "BT Bjørvika",
     "category": "Type design",
     "image": {
       "class": "image-container",
-      "src": "assets/images/index-pomaire.jpg",
-      "alt": "NT Pomaire, a modern sans serif typeface"
+      "src": "/assets/images/projects/bt-bjorvika/hero.jpg",
+      "alt": "BT Bjørvika — project cover"
     },
     "wrappedImage": false
   },
   {
     "href": "holidaze.html",
-    "title": "Holidaze Bergen ",
-    "category": "Design, Frontend",
+    "title": "Holidaze",
+    "category": "Visual identity, Webdesign, Frontend",
     "image": {
       "class": "image-container",
-      "src": "assets/images/index-holidaze.jpg",
-      "alt": "screenshot of Holidaze's home page"
+      "src": "/assets/images/projects/holidaze/holidaze-laptop-horizontal.jpg",
+      "alt": "Holidaze — project cover"
     },
     "wrappedImage": false
   },
   {
     "href": "ntrbty.html",
-    "title": "NTR•BTY ",
-    "category": "Design, Frontend",
+    "title": "NTR•BTY",
+    "category": "Visual identity, Webdesign, Frontend",
     "image": {
-      "src": "assets/images/index-ntrbty.jpg",
-      "alt": "screenshot of NTR BTY's home page"
+      "class": "image-container",
+      "src": "/assets/images/projects/ntrbty/ntr-bty-hero.jpg",
+      "alt": "NTR•BTY — project cover"
     },
-    "wrappedImage": true
+    "wrappedImage": false
   },
   {
     "href": "nomadlife.html",
-    "title": "Nomadlife ",
-    "category": "Design, Frontend",
+    "title": "Nomadlife",
+    "category": "Visual identity, Webdesign, Frontend",
     "image": {
-      "src": "assets/images/index-nomadlife.jpg",
-      "alt": "screenshot of NTR BTY's home page"
+      "class": "image-container",
+      "src": "/assets/images/projects/nomadlife/nomadlife-hero.webp",
+      "alt": "Nomadlife — project cover"
     },
-    "wrappedImage": true
+    "wrappedImage": false
   },
   {
     "href": "csm.html",
-    "title": "CSM",
+    "title": "Community Science Museum",
     "category": "Design, Frontend",
     "image": {
-      "src": "assets/images/index-csm.jpg",
-      "alt": "screenshot of NTR BTY's home page"
+      "class": "image-container",
+      "src": "/assets/images/csm.jpg",
+      "alt": "Community Science Museum homepage"
     },
-    "wrappedImage": true
-  },
-  {
-    "href": "rainydays.html",
-    "title": "Rainy Days ",
-    "category": "Design, Frontend",
-    "image": {
-      "src": "assets/images/index-rainydays.jpg",
-      "alt": "screenshot of NTR BTY's home page"
-    },
-    "wrappedImage": true
+    "wrappedImage": false
   }
 ]

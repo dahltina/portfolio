@@ -417,3 +417,28 @@ main.about-page {
     align-items: center;
   }
 }
+
+/* The project collection can grow without colliding with the footer. */
+.project-list {
+  height: auto;
+  min-height: 60vh;
+  padding-bottom: 3rem;
+}
+.project-items li {
+  gap: 1rem;
+}
+.project-items li span:last-child {
+  text-align: right;
+}
+@media (max-width: 699px) {
+  .project-items li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+    padding-bottom: .75rem;
+  }
+  .project-items li span:last-child {
+    text-align: left;
+    font-size: 1rem;
+  }
+}

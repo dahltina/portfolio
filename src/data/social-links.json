@@ -38,15 +38,5 @@
       "src": "assets/icons/icon-goodreads.svg",
       "alt": "link to goodreads profile"
     }
-  },
-  {
-    "class": "link",
-    "href": "https://www.etsy.com/shop/printedstoriesno/",
-    "target": "_blank",
-    "image": {
-      "class": "icon",
-      "src": "assets/icons/icon-etsy.svg",
-      "alt": "link to etsy shop"
-    }
   }
 ]
