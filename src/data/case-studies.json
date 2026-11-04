@@ -191,6 +191,12 @@
             "height": 2400
           },
           {
+            "src": "/assets/images/projects/tinadahl/tinadahl-portfolio-optimized.mp4",
+            "alt": "Tina Dahl website walkthrough",
+            "type": "video",
+            "poster": "/assets/images/projects/tinadahl/video-first-frame.jpg"
+          },
+          {
             "src": "/assets/images/projects/tinadahl/tinadahl-mobile.jpg",
             "alt": "Tina Dahl — mobile website presentation",
             "type": "image",
@@ -218,18 +224,8 @@
             "width": 1600,
             "height": 2400
           }
-        ]
-      },
-      {
-        "title": "Website walkthrough",
-        "images": [
-          {
-            "src": "/assets/images/projects/tinadahl/tinadahl-portfolio-optimized.mp4",
-            "alt": "Tina Dahl website walkthrough",
-            "type": "video",
-            "poster": "/assets/images/projects/tinadahl/suom-03.jpg"
-          }
-        ]
+        ],
+        "layout": "naiv"
       }
     ]
   },
@@ -266,51 +262,29 @@
           },
           {
             "src": "/assets/images/projects/bt-bjorvika/g-1.jpg",
-            "alt": "BT Bjørvika — type specimen 2, variation 1",
+            "alt": "BT Bjørvika — g type specimen variations",
             "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/g-2.jpg",
-            "alt": "BT Bjørvika — type specimen 2, variation 2",
-            "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/g-3.jpg",
-            "alt": "BT Bjørvika — type specimen 2, variation 3",
-            "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/g-4.jpg",
-            "alt": "BT Bjørvika — type specimen 2, variation 4",
-            "width": 1080,
-            "height": 1350
+            "height": 1350,
+            "type": "slideshow",
+            "slides": [
+              "/assets/images/projects/bt-bjorvika/g-1.jpg",
+              "/assets/images/projects/bt-bjorvika/g-2.jpg",
+              "/assets/images/projects/bt-bjorvika/g-3.jpg",
+              "/assets/images/projects/bt-bjorvika/g-4.jpg"
+            ]
           },
           {
             "src": "/assets/images/projects/bt-bjorvika/q-1.jpg",
-            "alt": "BT Bjørvika — type specimen 3, variation 1",
+            "alt": "BT Bjørvika — q type specimen variations",
             "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/q-2.jpg",
-            "alt": "BT Bjørvika — type specimen 3, variation 2",
-            "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/q-3.jpg",
-            "alt": "BT Bjørvika — type specimen 3, variation 3",
-            "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/q-4.jpg",
-            "alt": "BT Bjørvika — type specimen 3, variation 4",
-            "width": 1080,
-            "height": 1350
+            "height": 1350,
+            "type": "slideshow",
+            "slides": [
+              "/assets/images/projects/bt-bjorvika/q-1.jpg",
+              "/assets/images/projects/bt-bjorvika/q-2.jpg",
+              "/assets/images/projects/bt-bjorvika/q-3.jpg",
+              "/assets/images/projects/bt-bjorvika/q-4.jpg"
+            ]
           },
           {
             "src": "/assets/images/projects/bt-bjorvika/image-1.jpg",
@@ -328,15 +302,16 @@
           },
           {
             "src": "/assets/images/projects/bt-bjorvika/image-3.jpg",
-            "alt": "BT Bjørvika — type specimen 6, variation 1",
+            "alt": "BT Bjørvika — alternating type specimens",
             "width": 1080,
-            "height": 1350
-          },
-          {
-            "src": "/assets/images/projects/bt-bjorvika/image-5.jpg",
-            "alt": "BT Bjørvika — type specimen 6, variation 2",
-            "width": 1080,
-            "height": 1350
+            "height": 1350,
+            "type": "slideshow",
+            "slides": [
+              "/assets/images/projects/bt-bjorvika/image-3.jpg",
+              "/assets/images/projects/bt-bjorvika/image-5.jpg",
+              "/assets/images/projects/bt-bjorvika/image-3.jpg",
+              "/assets/images/projects/bt-bjorvika/image-5.jpg"
+            ]
           }
         ]
       }
@@ -378,6 +353,12 @@
             "height": 3000
           },
           {
+            "src": "/assets/images/projects/holidaze/holidaze-video-optimized.mp4",
+            "alt": "Holidaze website walkthrough",
+            "type": "video",
+            "poster": "/assets/images/projects/holidaze/video-first-frame.jpg"
+          },
+          {
             "src": "/assets/images/projects/holidaze/holidaze-mobile.jpg",
             "alt": "Holidaze — mobile website presentation",
             "type": "image",
@@ -391,18 +372,8 @@
             "width": 5000,
             "height": 3632
           }
-        ]
-      },
-      {
-        "title": "Website walkthrough",
-        "images": [
-          {
-            "src": "/assets/images/projects/holidaze/holidaze-video-optimized.mp4",
-            "alt": "Holidaze website walkthrough",
-            "type": "video",
-            "poster": "/assets/images/holidaze.jpg"
-          }
-        ]
+        ],
+        "layout": "naiv"
       },
       {
         "title": "Logo & symbol",
@@ -505,6 +476,12 @@
             "height": 1200
           },
           {
+            "src": "/assets/images/projects/ntrbty/ntr-bty-optimized.mp4",
+            "alt": "NTR•BTY website walkthrough",
+            "type": "video",
+            "poster": "/assets/images/projects/ntrbty/video-first-frame.jpg"
+          },
+          {
             "src": "/assets/images/projects/ntrbty/ntr-bty-mobile.jpg",
             "alt": "NTR•BTY — mobile website presentation",
             "type": "image",
@@ -518,18 +495,8 @@
             "width": 1200,
             "height": 1200
           }
-        ]
-      },
-      {
-        "title": "Website walkthrough",
-        "images": [
-          {
-            "src": "/assets/images/projects/ntrbty/ntr-bty-optimized.mp4",
-            "alt": "NTR•BTY website walkthrough",
-            "type": "video",
-            "poster": "/assets/images/ntrbty.jpg"
-          }
-        ]
+        ],
+        "layout": "naiv"
       },
       {
         "title": "Logo",
@@ -545,6 +512,20 @@
             "src": "/assets/images/projects/ntrbty/ntr-bty-logo-light.png",
             "alt": "NTR•BTY light wordmark",
             "background": "#38AB8D",
+            "width": 300,
+            "height": 52
+          },
+          {
+            "src": "/assets/images/projects/ntrbty/ntr-bty-logo-dark.png",
+            "alt": "NTR•BTY dark wordmark on pink",
+            "background": "#FAACA1",
+            "width": 300,
+            "height": 52
+          },
+          {
+            "src": "/assets/images/projects/ntrbty/ntr-bty-logo-light.png",
+            "alt": "NTR•BTY light wordmark on orange",
+            "background": "#FE9665",
             "width": 300,
             "height": 52
           }
@@ -637,6 +618,12 @@
             "height": 3990
           },
           {
+            "src": "/assets/images/projects/nomadlife/nomadlife-optimized.mp4",
+            "alt": "Nomadlife website walkthrough",
+            "type": "video",
+            "poster": "/assets/images/projects/nomadlife/video-first-frame.jpg"
+          },
+          {
             "src": "/assets/images/projects/nomadlife/nomadlife-mobile.jpg",
             "alt": "Nomadlife — mobile website presentation",
             "type": "image",
@@ -650,18 +637,8 @@
             "width": 3225,
             "height": 4000
           }
-        ]
-      },
-      {
-        "title": "Website walkthrough",
-        "images": [
-          {
-            "src": "/assets/images/projects/nomadlife/nomadlife-optimized.mp4",
-            "alt": "Nomadlife website walkthrough",
-            "type": "video",
-            "poster": "/assets/images/nomadlife.jpg"
-          }
-        ]
+        ],
+        "layout": "naiv"
       },
       {
         "title": "Logo & interface",

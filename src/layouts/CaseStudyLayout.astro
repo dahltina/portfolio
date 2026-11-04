@@ -2,6 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import ProjectList from '../components/ProjectList.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import ImageSlideshow from '../components/ImageSlideshow.astro';
 import projects from '../data/case-studies.json';
 
 type Project = (typeof projects)[number];
@@ -13,30 +15,32 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
 }));
 ---
 <BaseLayout title={`Tina Dahl | ${project.name}`} description={project.intro[0]} bodyClass="body-project">
-  <main class="project-page case-study">
+  <main class:list={["project-page", "case-study", { "case-study--tina-dahl": project.slug === "tina-dahl", "case-study--bt-bjorvika": project.slug === "bt-bjorvika" }]}>
     <SocialLinks class="icons-desktop" />
     <article>
-      <header class="case-heading">
-        <h1 class="fs-5">{project.name}</h1>
-        <p class="fs-1">{project.category}{project.year && ` / ${project.year}`}</p>
-      </header>
       <img class="case-hero" {...project.hero} fetchpriority="high" />
-      <section class="case-intro" aria-labelledby="case-headline">
-        <dl class="case-facts fs-1">
-          <div><dt>Project</dt><dd>{project.type}</dd></div>
-          <div><dt>My role</dt><dd>{project.category}</dd></div>
-          <div><dt>Tools & technology</dt><dd>{project.tools.join(' · ')}</dd></div>
-          {project.year && <div><dt>Year</dt><dd>{project.year}</dd></div>}
-        </dl>
+      <section class="case-intro" aria-labelledby="case-title">
+        <div class="case-meta">
+          <dl class="case-facts fs-1">
+            <div><dt>Project</dt><dd>{project.type}</dd></div>
+            <div><dt>My role</dt><dd>{project.category}</dd></div>
+            <div><dt>Tools & technology</dt><dd>{project.tools.join(' · ')}</dd></div>
+            {project.year && <div><dt>Year</dt><dd>{project.year}</dd></div>}
+            {(project.website || project.github) && (
+              <div>
+                <dt>Links</dt>
+                <dd class="case-links">
+                  {project.website && <a href={project.website} class="link link-regular" target="_blank" rel="noopener noreferrer">Website</a>}
+                  {project.github && <a href={project.github} class="link link-regular" target="_blank" rel="noopener noreferrer">Github</a>}
+                </dd>
+              </div>
+            )}
+          </dl>
+        </div>
         <div class="case-copy">
+          <h1 id="case-title" class="fs-5">{project.name}</h1>
           <h2 id="case-headline" class="fs-3">{project.headline}</h2>
           {project.intro.map(paragraph => <p class="fs-1">{paragraph}</p>)}
-          {(project.website || project.github) && (
-            <div class="case-links fs-3">
-              {project.website && <a href={project.website} class="link link-regular" target="_blank" rel="noopener noreferrer">View website ↗</a>}
-              {project.github && <a href={project.github} class="link link-regular" target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
-            </div>
-          )}
         </div>
       </section>
       {project.sections.map((section, index) => (
@@ -45,10 +49,15 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
             <span aria-hidden="true">{String(index + 1).padStart(2, '0')} / </span>{section.title}
           </h2>
           {'images' in section && section.images && (
+            'layout' in section && section.layout === 'naiv'
+              ? <ProjectGallery images={section.images} square={project.slug === 'ntrbty'} />
+              :
             <div class:list={['case-gallery', { 'case-logos': 'layout' in section && section.layout === 'logos', 'case-gallery-stacked': 'layout' in section && section.layout === 'stacked-left', 'case-gallery-three': section.images.length === 3 && !('layout' in section && section.layout === 'stacked-left') }]}>
               {section.images.map(media => (
-                <figure class:list={{ 'case-video': 'type' in media && media.type === 'video' }} style={'background' in media ? `background-color: ${media.background}` : undefined}>
-                  {'type' in media && media.type === 'video' ? (
+                <figure class:list={{ 'case-video': 'type' in media && media.type === 'video', 'case-panel': 'background' in media }} style={'background' in media ? `background-color: ${media.background}` : undefined}>
+                  {'type' in media && media.type === 'slideshow' && 'slides' in media ? (
+                    <ImageSlideshow images={media.slides} alt={media.alt} width={media.width} height={media.height} />
+                  ) : 'type' in media && media.type === 'video' ? (
                     <video controls playsinline preload="none" poster={'poster' in media ? media.poster : undefined} aria-label={media.alt}>
                       <source src={media.src} type="video/mp4" />
                       <a href={media.src}>Watch {media.alt}</a>
@@ -64,7 +73,7 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
               {section.colors.map(color => (
                 <figure>
                   <div class="case-swatch" style={`background-color: ${color.hex}`} />
-                  <figcaption><span>{color.name}</span><span>{color.hex.toUpperCase()}</span></figcaption>
+                  <figcaption>{color.name}</figcaption>
                 </figure>
               ))}
             </div>
@@ -82,21 +91,20 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
 <style>
   /* Keep the site's colours, type scale, navigation and links; only expand the case study layout. */
   .case-study { padding-bottom: 5rem; }
-  .case-heading { max-width: none; margin-bottom: 2rem; }
-  .case-heading h1 { overflow-wrap: anywhere; line-height: 1.05; margin-bottom: 1rem; }
-  .case-hero { display: block; width: 100%; height: auto; border: 2px solid black; border-radius: 20px; }
   .case-intro { display: grid; gap: 2.5rem; margin: 3rem 0 5rem; }
   .case-facts { margin: 0; display: grid; align-content: start; gap: 1.25rem; }
   .case-facts dt { font-size: .8em; text-transform: uppercase; margin-bottom: .35rem; }
   .case-facts dd { margin: 0; line-height: 1.5; }
   .case-copy { max-width: 700px; }
+  .case-copy h1 { overflow-wrap: anywhere; line-height: 1.05; margin-bottom: 1.5rem; }
   .case-copy h2 { margin-bottom: 1.5rem; line-height: 1.2; }
   .case-copy p { line-height: 1.6; margin-bottom: 1.25rem; }
-  .case-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+  .case-links { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
   .case-section { margin-bottom: clamp(3rem, 7vw, 7rem); }
   .case-section-title { border-top: 1px solid black; padding-top: 1rem; margin-bottom: 1.5rem; }
-  .case-gallery { display: grid; gap: 1rem; align-items: start; }
+  .case-gallery { display: grid; gap: 12px; align-items: start; }
   figure { margin: 0; min-width: 0; }
+  .case-panel { border-radius: 12px; overflow: hidden; }
   .case-gallery img { display: block; width: 100%; height: auto; border-radius: 12px; }
   .case-gallery:not(.case-logos) img {
     max-height: 650px;
@@ -117,8 +125,8 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
     object-fit: contain;
     border-radius: 0;
   }
-  .case-palette { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .case-swatch { aspect-ratio: 1; border: 1px solid rgb(0 0 0 / 15%); border-radius: 12px; }
+  .case-palette { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .case-swatch { aspect-ratio: 1; border-radius: 12px; }
   .case-palette figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .5rem; padding-top: .6rem; }
   .case-related { margin-top: 5rem; }
   .case-related h2 { margin: 3rem 0 2rem; }
@@ -129,7 +137,7 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
   }
   @media (min-width: 700px) {
     .case-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 3rem; margin-top: 4rem; }
-    .case-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    .case-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     /* Bring each two-row group together at its middle seam, as on Naiv. */
     .case-gallery:not(.case-logos) > figure:nth-child(4n + 1),
     .case-gallery:not(.case-logos) > figure:nth-child(4n + 2) {
@@ -169,7 +177,7 @@ const related = projects.filter(item => item.slug !== project.slug).map(item => 
   @media (min-width: 1050px) {
     .case-gallery-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .case-gallery-three:not(.case-logos) > figure:nth-child(n) { align-self: end; }
-    main.case-study { padding-top: 140px; max-width: 1600px; }
+    main.case-study { max-width: 1600px; }
     .case-intro { margin-bottom: 6rem; gap: 5rem; }
     .case-palette { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   }

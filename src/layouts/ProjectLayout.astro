@@ -16,6 +16,7 @@ const { project } = Astro.props;
 >
   <main class="project-page">
     <SocialLinks class="icons-desktop" />
+    <img {...project.image} />
     <div class="project">
       {project.year ? (
         <div class="title-container margin-bottom-small">
@@ -24,7 +25,6 @@ const { project } = Astro.props;
         </div>
       ) : <h1 class={project.headingClass}>{project.heading}</h1>}
       <div class="project-container">
-        <img {...project.image} />
         <div class="project-description margin-bottom">
           <slot />
         </div>

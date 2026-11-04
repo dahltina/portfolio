@@ -228,6 +228,8 @@ nav li:nth-child(3) {
 }
 
 .image-container {
+  border-radius: 12px;
+  overflow: hidden;
   position: absolute;
   display: none;
   width: 400px;
@@ -267,7 +269,24 @@ footer {
 /* Project page           */
 /* ---------------------- */
 .body-project {
+  --project-header-font-size: 1.125rem;
   background-color: var(--clr-secondary);
+}
+
+.body-project .logo,
+.body-project nav li {
+  line-height: 1;
+}
+
+/* The header reserves its own space: 15px + text + 15px. */
+.body-project > header:not(.index) {
+  height: calc(var(--project-header-font-size) + 30px);
+  margin: 0;
+  padding: 0;
+}
+
+.body-project main.project-page {
+  padding-top: 0;
 }
 
 .project-page .icons-desktop,
@@ -291,8 +310,24 @@ main.about-page {
 .project-hero-img,
 .about-hero-img {
   max-width: 1000px;
-  border-radius: 20px;
-  border: 2px solid black;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Full-bleed project heroes retain their original image proportions. */
+main.project-page {
+  margin-inline: auto;
+}
+
+.case-hero,
+.project-hero-img {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  margin-inline: calc(50% - 50vw);
+  border: none;
+  border-radius: 0;
 }
 
 .project-description,
@@ -317,6 +352,7 @@ main.about-page {
 /* ---------------------- */
 
 @media (min-width: 700px) {
+  .body-project { --project-header-font-size: 1.275rem; }
   .margin-bottom-small { margin-bottom: 2rem; }
 
   .icons-desktop {
@@ -373,9 +409,7 @@ main.about-page {
   .fs-4 { font-size: 3.5rem; }
   .fs-5 { font-size: 5rem; }
 
-  main.project-page {
-    padding-top: 180px;
-  }
+  .body-project { --project-header-font-size: 2rem; }
 
   .image-container {
     width: 600px;
