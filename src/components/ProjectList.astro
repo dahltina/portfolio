@@ -1,9 +1,9 @@
 ---
 import type { ProjectLink } from '../types/projects';
-interface Props { projects: ProjectLink[]; preview?: boolean }
-const { projects, preview = false } = Astro.props;
+interface Props { projects: ProjectLink[]; preview?: boolean; variant?: 'index' | 'related' }
+const { projects, preview = false, variant = preview ? 'index' : 'related' } = Astro.props;
 ---
-<ul class={preview ? 'project-items' : 'more-projects'}>
+<ul class={variant === 'index' ? 'project-items' : 'more-projects'}>
   {projects.map(project => (
     <a href={project.href} class={preview ? undefined : 'link'}
       onpointerenter={preview ? 'showImage(event)' : undefined}

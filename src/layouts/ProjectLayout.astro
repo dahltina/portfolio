@@ -43,7 +43,7 @@ const { project } = Astro.props;
     </article>
     <section class="project-related" aria-labelledby="more-projects-heading">
       <h2 id="more-projects-heading" class="fs-4">MORE PROJECTS</h2>
-      <ProjectList projects={relatedProjects(project)} />
+      <ProjectList projects={relatedProjects(project)} preview variant="related" />
     </section>
   </main>
 </BaseLayout>
