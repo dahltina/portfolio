@@ -11,16 +11,6 @@
   },
   {
     "class": "link",
-    "href": "https://www.behance.net/tinadahl1",
-    "target": "_blank",
-    "image": {
-      "class": "icon",
-      "src": "assets/icons/icon-behance.svg",
-      "alt": "link to behance profile"
-    }
-  },
-  {
-    "class": "link",
     "href": "https://open.spotify.com/user/tina_dahl?si=mDMxLcvuRCKY-zDUd8iutQ",
     "target": "_blank",
     "image": {
