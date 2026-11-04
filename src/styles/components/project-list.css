@@ -18,14 +18,6 @@
   transition: 1s;
 }
 
-.project-items li {
-  gap: 1rem;
-}
-
-.project-items li span:last-child {
-  text-align: right;
-}
-
 .image-container {
   border-radius: var(--media-radius);
   overflow: hidden;
@@ -40,24 +32,4 @@
   pointer-events: none;
   z-index: 100;
   will-change: transform;
-}
-
-@media (min-width: 700px) {
-  .project-items li {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 699px) {
-  .project-items li {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .project-items li span:last-child {
-    text-align: left;
-    font-size: 1rem;
-  }
 }
