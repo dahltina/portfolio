@@ -14,7 +14,25 @@ header.index {
 
 .h1-animated {
   font-size: 8.6vw;
-  line-height: 90%;
+  line-height: 80%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .h1-animated {
+    animation: home-heading-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes home-heading-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-list {

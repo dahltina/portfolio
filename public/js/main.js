@@ -47,14 +47,6 @@ document.querySelectorAll(".link").forEach(link => {
   });
 });
 
-// animate h1
-gsap.from(".h1-animated", {
-  duration: 0.8,
-  opacity: 0,
-  scale: 0.8,
-  ease: "back"
-}, "+=1")
-
 // Each project's own image keeps its aspect ratio and stays inside the viewport.
 let previewElement = null;
 let previewImage = null;
