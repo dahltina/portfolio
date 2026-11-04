@@ -22,45 +22,6 @@
         "category": "Design, Frontend"
       },
       {
-        "href": "csm.html",
-        "title": "Community Science Museum ",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "rainydays.html",
-        "title": "Rainy Days ",
-        "category": "Design, Frontend"
-      }
-    ]
-  },
-  "csm": {
-    "title": "Tina Dahl | Community Science Museum",
-    "description": "Community Science Museum is a fictional science museum. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
-    "heading": "Community Science Museum",
-    "headingClass": "fs-5 margin-bottom-small",
-    "year": null,
-    "image": {
-      "class": "project-hero-img margin-bottom-small",
-      "src": "assets/images/csm.jpg",
-      "alt": "Screenshot of Community Science Museum's home page"
-    },
-    "related": [
-      {
-        "href": "holidaze.html",
-        "title": "Holidaze Bergen ",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "ntrbty.html",
-        "title": "NTR•BTY ",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "nomadlife.html",
-        "title": "Nomadlife",
-        "category": "Design, Frontend"
-      },
-      {
         "href": "rainydays.html",
         "title": "Rainy Days ",
         "category": "Design, Frontend"
@@ -87,11 +48,6 @@
       {
         "href": "nomadlife.html",
         "title": "Nomadlife ",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "csm.html",
-        "title": "Community Science Museum ",
         "category": "Design, Frontend"
       },
       {
@@ -124,11 +80,6 @@
         "category": "Design, Frontend"
       },
       {
-        "href": "csm.html",
-        "title": "Community Science Museum ",
-        "category": "Design, Frontend"
-      },
-      {
         "href": "rainydays.html",
         "title": "Rainy Days ",
         "category": "Design, Frontend"
@@ -155,11 +106,6 @@
       {
         "href": "ntrbty.html",
         "title": "NTR•BTY ",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "csm.html",
-        "title": "Community Science Museum ",
         "category": "Design, Frontend"
       },
       {
@@ -194,11 +140,6 @@
       {
         "href": "nomadlife.html",
         "title": "Nomadlife",
-        "category": "Design, Frontend"
-      },
-      {
-        "href": "csm.html",
-        "title": "Community Science Museum ",
         "category": "Design, Frontend"
       }
     ]

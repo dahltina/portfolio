@@ -64,16 +64,5 @@
       "alt": "Nomadlife — project cover"
     },
     "wrappedImage": false
-  },
-  {
-    "href": "csm.html",
-    "title": "Community Science Museum",
-    "category": "Design, Frontend",
-    "image": {
-      "class": "image-container",
-      "src": "/assets/images/csm.jpg",
-      "alt": "Community Science Museum homepage"
-    },
-    "wrappedImage": false
   }
 ]

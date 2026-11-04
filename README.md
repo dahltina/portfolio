@@ -36,7 +36,7 @@ Deploy the generated `dist/` folder to static hosting. No application server is 
 ## Project content
 
 The featured lineup is ROM Eiendomsmegling, Tina Dahl, BT Bjørvika, Holidaze,
-NTR•BTY, Nomadlife, and Community Science Museum. Original website project URLs
+NTR•BTY, and Nomadlife. Original website project URLs
 are retained. Rainy Days and BT Pomaire remain accessible through their existing
 URLs but are no longer featured. Case study copy is in English, adapted from Naiv.
 

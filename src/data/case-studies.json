@@ -746,29 +746,5 @@
         ]
       }
     ]
-  },
-  {
-    "slug": "csm",
-    "name": "Community Science Museum",
-    "category": "Webdesign, Frontend development",
-    "type": "Student project",
-    "tools": [
-      "HTML",
-      "CSS"
-    ],
-    "headline": "Making science accessible to young explorers.",
-    "intro": [
-      "A fictional website for a new science museum, aimed at children aged 7–15 and their parents. The goal was to make the museum feel welcoming and help families discover its exhibitions and plan a visit.",
-      "This was my first semester exam, bringing together the design, HTML and CSS skills learned during the course."
-    ],
-    "hero": {
-      "src": "/assets/images/csm.jpg",
-      "alt": "Community Science Museum homepage",
-      "width": 2000,
-      "height": 1160
-    },
-    "website": "https://tinadahl-csm.netlify.app",
-    "github": "https://github.com/dahltina/community-science-museum",
-    "sections": []
   }
 ]
