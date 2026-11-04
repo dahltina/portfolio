@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import ProjectList from '../components/ProjectList.astro';
+import projects from '../data/home-projects.json';
+---
+<BaseLayout
+  title="Tina Dahl | Frontend developer and designer"
+  description="Frontend developer and designer based in Oslo"
+  home
+>
+  <Fragment slot="header">
+    <div class="hero">
+      <h1 class="h1-animated">
+        Hey! I'm Tina, a frontend developer and designer based in Oslo.
+      </h1>
+    </div>
+    <SocialLinks class="icons-desktop" />
+  </Fragment>
+  <main>
+
+    <!------ projects ------>
+
+    <div class="project-list">
+      <h2 id="projects" class="fs-5 margin-bottom">PROJECTS</h2>
+      <ProjectList projects={projects} preview />
+    </div>
+
+  </main>
+</BaseLayout>

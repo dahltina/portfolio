@@ -1,0 +1,52 @@
+[
+  {
+    "class": "link",
+    "href": "https://github.com/dahltina",
+    "target": "_blank",
+    "image": {
+      "class": "icon",
+      "src": "assets/icons/icon-github.svg",
+      "alt": "link to github profile"
+    }
+  },
+  {
+    "class": "link",
+    "href": "https://www.behance.net/tinadahl1",
+    "target": "_blank",
+    "image": {
+      "class": "icon",
+      "src": "assets/icons/icon-behance.svg",
+      "alt": "link to behance profile"
+    }
+  },
+  {
+    "class": "link",
+    "href": "https://open.spotify.com/user/tina_dahl?si=mDMxLcvuRCKY-zDUd8iutQ",
+    "target": "_blank",
+    "image": {
+      "class": "icon",
+      "src": "assets/icons/icon-spotify.svg",
+      "alt": "link to spotify profile"
+    }
+  },
+  {
+    "class": "link",
+    "href": "https://www.goodreads.com/user/show/109944304-tina-dahl",
+    "target": "_blank",
+    "image": {
+      "class": "icon",
+      "src": "assets/icons/icon-goodreads.svg",
+      "alt": "link to goodreads profile"
+    }
+  },
+  {
+    "class": "link",
+    "href": "https://www.etsy.com/shop/printedstoriesno/",
+    "target": "_blank",
+    "image": {
+      "class": "icon",
+      "src": "assets/icons/icon-etsy.svg",
+      "alt": "link to etsy shop"
+    }
+  }
+]

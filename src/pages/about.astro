@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+<BaseLayout
+  title="Tina Dahl | About"
+  description="I'm Tina, a frontend developer and designer based in Oslo. Available for freelance projects!"
+  bodyId="about"
+>
+  <main class="about-page">
+    <!------ icons ------>
+    <SocialLinks class="icons-desktop" />
+    <!------ about ------>
+    <div class="about">
+      <h1 class="fs-5 margin-bottom-small">About me</h1>
+      <div class="about-container">
+        <img
+          class="about-hero-img margin-bottom-small"
+          src="assets/images/tina-v2.jpg"
+          alt="Woman with long blonde hair"
+        >
+        <div class="about-description margin-bottom">
+          <p class="fs-2">
+            I'm Tina, designer and frontend developer. I spend most of my days designing
+            websites, typefaces, prints and whatever else I feel drawn to.
+          </p>
+          <br/>
+          <p class="fs-2">
+            Apart from design and development I love yoga, music, hiking,
+            traveling, drawing and painting, books, tv shows and movies.
+          </p>
+          <br/>
+          <p class="fs-2">
+            I also designed some prints that I sell on
+            <a class="link" href="https://www.etsy.com/shop/printedstoriesno/" target="_blank">Etsy.</a>
+          </p>
+          <br/>
+          <p class="fs-2 margin-bottom">
+            Always creating and learning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

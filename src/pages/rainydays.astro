@@ -1,0 +1,22 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+import projects from '../data/projects.json';
+---
+<ProjectLayout project={projects["rainydays"]}>
+  <p class="fs-1">
+    Our first school project after learning a bit of HTML and CSS.
+  </p>
+  <br/>
+  <p class="fs-1 margin-bottom">
+    The goal was to create an e-commerce site for an outdoor clothing
+    brand selling mainly rain gear. The target audience is people
+    aged 30 - 50 who are interested in outdoor activities. Uses Wordpress / WooCommerce
+    as CSM
+  </p>
+  <div class="fs-3 margin-bottom-small">
+    <a class="link link-regular" target="_blank" href="https://github.com/dahltina/rainy-days">GitHub</a>
+  </div>
+  <div class="fs-3">
+    <a class="link link-regular" target="_blank" href="https://dahltina-firstproject.netlify.app">Website</a>
+  </div>
+</ProjectLayout>

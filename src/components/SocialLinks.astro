@@ -1,0 +1,13 @@
+---
+import links from '../data/social-links.json';
+
+interface Props {
+  class: string;
+}
+const { class: className } = Astro.props;
+---
+<div class={className}>
+  {links.map(({ image, ...link }) => (
+    <><a {...link}><img {...image} /></a>{'\n      '}</>
+  ))}
+</div>

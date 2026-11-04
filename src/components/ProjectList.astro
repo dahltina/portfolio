@@ -1,0 +1,35 @@
+---
+interface ProjectLink {
+  href: string;
+  title: string;
+  category: string;
+  image?: { src: string; alt: string; class?: string };
+  wrappedImage?: boolean;
+}
+interface Props {
+  projects: ProjectLink[];
+  preview?: boolean;
+}
+const { projects, preview = false } = Astro.props;
+---
+<!-- Preserve the original structure so the existing CSS and hover behavior stay identical. -->
+<ul class={preview ? 'project-items' : 'more-projects'}>
+  {projects.map((project) => (
+    <a
+      href={project.href}
+      class={preview ? undefined : 'link'}
+      onpointerenter={preview ? `showImage('${project.image!.src}')` : undefined}
+      onpointerleave={preview ? 'hideImage()' : undefined}
+    >
+      <li>
+        <span class="fs-2">{project.title}</span>
+        <span class="fs-2">{project.category}</span>
+      </li>
+      {preview && project.image && (
+        project.wrappedImage
+          ? <div class="image-container"><img {...project.image} /></div>
+          : <img {...project.image} />
+      )}
+    </a>
+  ))}
+</ul>

@@ -1,0 +1,64 @@
+[
+  {
+    "href": "nt-pomaire.html",
+    "title": "BT Pomaire ",
+    "category": "Type design",
+    "image": {
+      "class": "image-container",
+      "src": "assets/images/index-pomaire.jpg",
+      "alt": "NT Pomaire, a modern sans serif typeface"
+    },
+    "wrappedImage": false
+  },
+  {
+    "href": "holidaze.html",
+    "title": "Holidaze Bergen ",
+    "category": "Design, Frontend",
+    "image": {
+      "class": "image-container",
+      "src": "assets/images/index-holidaze.jpg",
+      "alt": "screenshot of Holidaze's home page"
+    },
+    "wrappedImage": false
+  },
+  {
+    "href": "ntrbty.html",
+    "title": "NTR•BTY ",
+    "category": "Design, Frontend",
+    "image": {
+      "src": "assets/images/index-ntrbty.jpg",
+      "alt": "screenshot of NTR BTY's home page"
+    },
+    "wrappedImage": true
+  },
+  {
+    "href": "nomadlife.html",
+    "title": "Nomadlife ",
+    "category": "Design, Frontend",
+    "image": {
+      "src": "assets/images/index-nomadlife.jpg",
+      "alt": "screenshot of NTR BTY's home page"
+    },
+    "wrappedImage": true
+  },
+  {
+    "href": "csm.html",
+    "title": "CSM",
+    "category": "Design, Frontend",
+    "image": {
+      "src": "assets/images/index-csm.jpg",
+      "alt": "screenshot of NTR BTY's home page"
+    },
+    "wrappedImage": true
+  },
+  {
+    "href": "rainydays.html",
+    "title": "Rainy Days ",
+    "category": "Design, Frontend",
+    "image": {
+      "src": "assets/images/index-rainydays.jpg",
+      "alt": "screenshot of NTR BTY's home page"
+    },
+    "wrappedImage": true
+  }
+]

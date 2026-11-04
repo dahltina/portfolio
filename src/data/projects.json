@@ -1,0 +1,206 @@
+{
+  "holidaze": {
+    "title": "Tina Dahl | Holidaze",
+    "description": "Holidaze is a fictional travel agency that lets you book accommodation and experiences in Bergen. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "Holidaze Bergen",
+    "headingClass": "fs-5",
+    "year": "2022",
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/holidaze.jpg",
+      "alt": "Screenshot of Holidaze Bergen home page"
+    },
+    "related": [
+      {
+        "href": "ntrbty.html",
+        "title": "NTR•BTY ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "nomadlife.html",
+        "title": "Nomadlife ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "csm.html",
+        "title": "Community Science Museum ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "rainydays.html",
+        "title": "Rainy Days ",
+        "category": "Design, Frontend"
+      }
+    ]
+  },
+  "csm": {
+    "title": "Tina Dahl | Community Science Museum",
+    "description": "Community Science Museum is a fictional science museum. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "Community Science Museum",
+    "headingClass": "fs-5 margin-bottom-small",
+    "year": null,
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/csm.jpg",
+      "alt": "Screenshot of Community Science Museum's home page"
+    },
+    "related": [
+      {
+        "href": "holidaze.html",
+        "title": "Holidaze Bergen ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "ntrbty.html",
+        "title": "NTR•BTY ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "nomadlife.html",
+        "title": "Nomadlife",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "rainydays.html",
+        "title": "Rainy Days ",
+        "category": "Design, Frontend"
+      }
+    ]
+  },
+  "nt-pomaire": {
+    "title": "Tina Dahl | Holidaze",
+    "description": "Holidaze is a fictional travel agency that lets you book accommodation and experiences in Bergen. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "BT Pomaire",
+    "headingClass": "fs-5",
+    "year": "2022",
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/index-pomaire.jpg",
+      "alt": "Screenshot of Holidaze Bergen home page"
+    },
+    "related": [
+      {
+        "href": "ntrbty.html",
+        "title": "NTR•BTY ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "nomadlife.html",
+        "title": "Nomadlife ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "csm.html",
+        "title": "Community Science Museum ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "rainydays.html",
+        "title": "Rainy Days ",
+        "category": "Design, Frontend"
+      }
+    ]
+  },
+  "ntrbty": {
+    "title": "Tina Dahl | NTR•BTY",
+    "description": "NTR•BTY is a fictional e-commerce site selling beauty products. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "NTR•BTY",
+    "headingClass": "fs-5 ff-serif margin-bottom-small",
+    "year": null,
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/ntrbty.jpg",
+      "alt": "Screenshot of NTR BTY's home page"
+    },
+    "related": [
+      {
+        "href": "holidaze.html",
+        "title": "Holidaze Bergen ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "nomadlife.html",
+        "title": "Nomadlife ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "csm.html",
+        "title": "Community Science Museum ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "rainydays.html",
+        "title": "Rainy Days ",
+        "category": "Design, Frontend"
+      }
+    ]
+  },
+  "nomadlife": {
+    "title": "Tina Dahl | Nomadlife",
+    "description": "Nomadlife is a fictional blog that focuses on travel lifestyle. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "Nomadlife",
+    "headingClass": "fs-5 ff-serif margin-bottom-small",
+    "year": null,
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/nomadlife.jpg",
+      "alt": "Screenshot of NTR BTY's home page"
+    },
+    "related": [
+      {
+        "href": "holidaze.html",
+        "title": "Holidaze Bergen ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "ntrbty.html",
+        "title": "NTR•BTY ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "csm.html",
+        "title": "Community Science Museum ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "rainydays.html",
+        "title": "Rainy Days ",
+        "category": "Design, Frontend"
+      }
+    ]
+  },
+  "rainydays": {
+    "title": "Tina Dahl | Rainy Days",
+    "description": "Rainy Days is a fictional e-commerce website selling rain gear. Designed and developed by Tina Dahl, frontend developer and designer based in Oslo.",
+    "heading": "Rainy Days",
+    "headingClass": "fs-5 ff-serif margin-bottom-small",
+    "year": null,
+    "image": {
+      "class": "project-hero-img margin-bottom-small",
+      "src": "assets/images/rainydays.jpg",
+      "alt": "Screenshot of Rainy Days's home page"
+    },
+    "related": [
+      {
+        "href": "holidaze.html",
+        "title": "Holidaze Bergen ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "ntrbty.html",
+        "title": "NTR•BTY ",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "nomadlife.html",
+        "title": "Nomadlife",
+        "category": "Design, Frontend"
+      },
+      {
+        "href": "csm.html",
+        "title": "Community Science Museum ",
+        "category": "Design, Frontend"
+      }
+    ]
+  }
+}

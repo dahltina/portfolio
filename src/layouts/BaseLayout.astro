@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+  bodyId?: string;
+  home?: boolean;
+}
+const { title, description, bodyClass, bodyId, home } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="stylesheet" href="https://use.typekit.net/twx3dhx.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>{title}</title>
+</head>
+<body class={bodyClass} id={bodyId}>
+  <div class="cursor"></div>
+  <Header home={home}>
+    <slot name="header" />
+  </Header>
+  <slot />
+  <Footer />
+  <!-- Keep classic scripts and their order: the original hover handlers use globals. -->
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script is:inline src="js/main.js"></script>
+</body>
+</html>

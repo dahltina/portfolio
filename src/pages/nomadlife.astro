@@ -1,0 +1,20 @@
+---
+import ProjectLayout from '../layouts/ProjectLayout.astro';
+import projects from '../data/projects.json';
+---
+<ProjectLayout project={projects["nomadlife"]}>
+  <p class="fs-1">
+    Nomadlife is a blog about the travel lifestyle and nomadism.
+  </p>
+  <br/>
+  <p class="fs-1 margin-bottom">
+    A school project where the goal was to create a blog site of our own choosing.
+    The site is built with Vanilla HTML, CSS & JavaScript using Wordpress as CMS.
+  </p>
+  <div class="fs-3 margin-bottom-small">
+    <a class="link link-regular" target="_blank" href="https://github.com/dahltina/nomadlife">GitHub</a>
+  </div>
+  <div class="fs-3">
+    <a class="link link-regular" target="_blank" href="https://nomadiclife.netlify.app/">Website</a>
+  </div>
+</ProjectLayout>
