@@ -10,6 +10,7 @@ nav {
 .logo,
 nav li {
   position: fixed;
+  z-index: 200;
 }
 
 .logo {
