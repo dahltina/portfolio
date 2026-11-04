@@ -7,7 +7,12 @@
 }
 
 .gallery {
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
+}
+
+.gallery--two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .gallery__item {
@@ -28,6 +33,7 @@
 }
 
 .gallery--grid .project-media,
+.gallery--two-column .project-media,
 .gallery--three .project-media,
 .gallery--stacked .project-media {
   max-height: var(--gallery-tall-height);
@@ -51,7 +57,6 @@
 /* The offset Naiv layout used by Holidaze and Nomadlife. */
 .gallery--staggered,
 .gallery--square {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-inline: auto;
   align-items: center;
 }
@@ -92,7 +97,6 @@
 
 .gallery--portrait {
   --gallery-ratio: 2 / 3;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .gallery--specimen {
@@ -126,9 +130,12 @@
 }
 
 /* Logo panels and palettes have their own layouts, sharing spacing and corners. */
-.logo-grid,
-.color-palette {
+.logo-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.color-palette {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .logo-grid__panel {
@@ -204,7 +211,10 @@
   .gallery--grid,
   .gallery--three,
   .gallery--stacked,
-  .gallery--specimen {
+  .gallery--specimen,
+  .gallery--staggered,
+  .gallery--square,
+  .gallery--portrait {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -251,10 +261,6 @@
     height: 100%;
     max-height: none;
     object-fit: cover;
-  }
-
-  .color-palette {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

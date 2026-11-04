@@ -609,7 +609,7 @@
             "type": "image"
           }
         ],
-        "layout": "grid"
+        "layout": "two-column"
       },
       {
         "title": "Colours",

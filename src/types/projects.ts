@@ -1,4 +1,4 @@
-export type GalleryLayout = 'natural' | 'grid' | 'three' | 'staggered' | 'stacked' | 'square' | 'portrait' | 'specimen';
+export type GalleryLayout = 'natural' | 'two-column' | 'grid' | 'three' | 'staggered' | 'stacked' | 'square' | 'portrait' | 'specimen';
 
 export interface ProjectImage {
   src: string;
