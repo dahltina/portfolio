@@ -1,6 +1,5 @@
 // Update the cursor once per display frame, using the latest pointer position.
 const cursor = document.querySelector(".cursor");
-let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 let cursorFrame = null;
 let cursorX = 0;
 let cursorY = 0;
@@ -56,29 +55,92 @@ gsap.from(".h1-animated", {
   ease: "back"
 }, "+=1")
 
-// show image on hover
-let attached = false;
-let imageContainer = document.querySelector(".image-container");
+// Each project's own image keeps its aspect ratio and stays inside the viewport.
+let previewElement = null;
+let previewImage = null;
+let previewFrame = null;
+let previewX = 0;
+let previewY = 0;
+let previewWidth = 0;
+let previewHeight = 0;
 
-const mouseMove = (event) => {
-  imageContainer.style.left = event.pageX + "px";
-  imageContainer.style.top = event.pageY + "px";
+function renderPreview() {
+  previewFrame = null;
+  if (!previewElement || !previewWidth || !previewHeight) return;
+  const edge = 12;
+  const offset = 18;
+  let x = previewX + offset;
+  let y = previewY + offset;
+  if (x + previewWidth > window.innerWidth - edge) x = previewX - offset - previewWidth;
+  if (y + previewHeight > window.innerHeight - edge) y = previewY - offset - previewHeight;
+  x = Math.max(edge, Math.min(x, window.innerWidth - previewWidth - edge));
+  y = Math.max(edge, Math.min(y, window.innerHeight - previewHeight - edge));
+  previewElement.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  previewElement.style.visibility = "visible";
 }
 
-function showImage(src) {
-  if (!attached) {
-    attached = true;
-    imageContainer.src = src;
-    imageContainer.style.display = "block";
-    document.addEventListener("pointermove", mouseMove);
+function queuePreview() {
+  if (previewFrame === null) previewFrame = requestAnimationFrame(renderPreview);
+}
+
+function fitPreview() {
+  if (!previewImage?.naturalWidth || !previewImage.naturalHeight) return;
+  const scale = Math.min(
+    1,
+    Math.max(1, Math.min(420, window.innerWidth - 24)) / previewImage.naturalWidth,
+    window.innerHeight * 0.5 / previewImage.naturalHeight
+  );
+  previewWidth = previewImage.naturalWidth * scale;
+  previewHeight = previewImage.naturalHeight * scale;
+  previewElement.style.width = `${previewWidth}px`;
+  previewElement.style.height = `${previewHeight}px`;
+  queuePreview();
+}
+
+function movePreview(event) {
+  previewX = event.clientX;
+  previewY = event.clientY;
+  queuePreview();
+}
+
+function showImage(event) {
+  hideImage();
+  if (event.pointerType !== "mouse") return;
+  previewElement = event.currentTarget.querySelector(".image-container");
+  if (!previewElement) return;
+  previewImage = previewElement.matches("img") ? previewElement : previewElement.querySelector("img");
+  if (!previewImage) {
+    previewElement = null;
+    return;
   }
-  if (supportsTouch) {
-    imageContainer.style.display = "none";
-  }
+  previewX = event.clientX;
+  previewY = event.clientY;
+  previewElement.style.visibility = "hidden";
+  previewElement.style.display = "block";
+  previewImage.addEventListener("load", fitPreview, { once: true });
+  fitPreview();
+  document.addEventListener("pointermove", movePreview, { passive: true });
 }
 
 function hideImage() {
-  attached = false;
-  imageContainer.style.display = "";
-  document.removeEventListener("pointermove", mouseMove);
+  if (previewFrame !== null) cancelAnimationFrame(previewFrame);
+  previewFrame = null;
+  if (previewElement) {
+    previewElement.style.display = "none";
+    previewElement.style.visibility = "hidden";
+  }
+  previewImage?.removeEventListener("load", fitPreview);
+  previewElement = null;
+  previewImage = null;
+  previewWidth = 0;
+  previewHeight = 0;
+  document.removeEventListener("pointermove", movePreview);
 }
+
+window.addEventListener("resize", () => {
+  if (previewElement) fitPreview();
+});
+window.addEventListener("scroll", hideImage, { passive: true });
+window.addEventListener("blur", hideImage);
+window.addEventListener("pagehide", hideImage);
+document.documentElement.addEventListener("pointerleave", hideImage);

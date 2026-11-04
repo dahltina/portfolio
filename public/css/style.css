@@ -230,11 +230,17 @@ nav li:nth-child(3) {
 .image-container {
   border-radius: 12px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: none;
-  width: 400px;
-  height: 232px;
+  width: auto;
+  height: auto;
+  max-width: min(420px, calc(100vw - 24px));
+  max-height: 50vh;
   pointer-events: none;
+  z-index: 100;
+  will-change: transform;
 }
 
 .project-img {
@@ -410,11 +416,6 @@ main.project-page {
   .fs-5 { font-size: 5rem; }
 
   .body-project { --project-header-font-size: 2rem; }
-
-  .image-container {
-    width: 600px;
-    height: 348px;
-  }
 
   #projects {
     margin-top: 200px;

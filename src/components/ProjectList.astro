@@ -18,7 +18,7 @@ const { projects, preview = false } = Astro.props;
     <a
       href={project.href}
       class={preview ? undefined : 'link'}
-      onpointerenter={preview ? `showImage('${project.image!.src}')` : undefined}
+      onpointerenter={preview ? 'showImage(event)' : undefined}
       onpointerleave={preview ? 'hideImage()' : undefined}
     >
       <li>
