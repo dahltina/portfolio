@@ -35,7 +35,8 @@
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .project-items {
+  .project-items,
+  .more-projects {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
@@ -43,14 +44,16 @@
     margin: 0;
   }
 
-  .project-items > a {
+  .project-items > a,
+  .more-projects > a {
     display: flex;
     flex-direction: column-reverse;
     align-self: start;
     min-width: 0;
   }
 
-  .project-items li {
+  .project-items li,
+  .more-projects li {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -58,9 +61,18 @@
     border-bottom: 0;
   }
 
-  .project-items li span:last-child {
+  .project-items li span:last-child,
+  .more-projects li span:last-child {
     font-size: 0.875rem;
     line-height: 1.2;
+  }
+
+  .project-related .more-projects li {
+    gap: 2px;
+  }
+
+  .project-related .more-projects li span:last-child {
+    text-align: left;
   }
 
   .image-container {
