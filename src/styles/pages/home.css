@@ -23,6 +23,13 @@ header.index {
   line-height: 80%;
 }
 
+@media (max-width: 699px) {
+  .h1-animated {
+    font-size: 6svh;
+    line-height: 90%;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .h1-animated {
     animation: home-heading-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
