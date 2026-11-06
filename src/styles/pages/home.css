@@ -7,6 +7,12 @@ header.index {
   overflow: hidden;
 }
 
+@media (max-width: 699px) {
+  header.index {
+    height: 100svh;
+  }
+}
+
 .hero {
   margin: var(--page-edge);
   max-width: 1400px;
